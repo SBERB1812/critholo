@@ -226,7 +226,7 @@
       align-content: center;
       gap: 8px;
       border: 1px solid rgb(255 255 255 / 12%);
-      border-radius: 5px;
+      border-radius: 8px;
       background: rgb(255 255 255 / 3%);
       color: #e4dfd9;
       cursor: pointer;
@@ -236,6 +236,11 @@
 
     .gallery-card .modal-art {
       margin-bottom: 4px;
+      border-radius: 5px;
+    }
+
+    .gallery-card[data-open-gallery="march-modal"] .modal-art {
+      margin-top: 12px;
     }
 
     .gallery-card:hover,
@@ -497,24 +502,24 @@
     <section class="gallery" aria-labelledby="gallery-title">
       <h2 class="gallery-heading" id="gallery-title">Learn more about the characters</h2>
       <div class="gallery-grid">
-        <button class="gallery-card" type="button" data-open-gallery="islands-modal">
-          <img class="modal-art" src="https://i.imgur.com/da97X1Y.png" alt="Florence from Shattered Legends" referrerpolicy="no-referrer" loading="eager">
+        <button class="gallery-card" type="button" data-open-gallery="florence-modal">
+          <img class="modal-art" src="https://i.imgur.com/83hc4cu.png" alt="Florence from Shattered Legends" referrerpolicy="no-referrer" loading="eager">
           <span><b>Florence</b></span><br /><br /><br />
         </button>
-        <button class="gallery-card" type="button" data-open-gallery="sea-modal">
-          <img class="modal-art" src="https://i.imgur.com/da97X1Y.png" alt="Florence from Shattered Legends" referrerpolicy="no-referrer" loading="eager">
+        <button class="gallery-card" type="button" data-open-gallery="sil-modal">
+          <img class="modal-art" src="https://i.imgur.com/sDRGR3f.png" alt="Florence from Shattered Legends" referrerpolicy="no-referrer" loading="eager">
           <span><b>Siliun "Sil" Faell</b></span><br /><br /><br />
         </button>
-        <button class="gallery-card" type="button" data-open-gallery="ship-modal">
-          <img class="modal-art" src="https://i.imgur.com/da97X1Y.png" alt="Florence from Shattered Legends" referrerpolicy="no-referrer" loading="eager">
+        <button class="gallery-card" type="button" data-open-gallery="kaz-modal">
+          <img class="modal-art" src="https://i.imgur.com/GleYPgx.png" alt="Florence from Shattered Legends" referrerpolicy="no-referrer" loading="eager">
           <span><b>Kaz Oogod</b></span><br /><br /><br />
         </button>
-        <button class="gallery-card" type="button" data-open-gallery="storm-modal">
-          <img class="modal-art" src="https://i.imgur.com/da97X1Y.png" alt="Florence from Shattered Legends" referrerpolicy="no-referrer" loading="eager">
+        <button class="gallery-card" type="button" data-open-gallery="march-modal">
+          <img class="modal-art" src="https://i.imgur.com/8ADBdXb.png" alt="Florence from Shattered Legends" referrerpolicy="no-referrer" loading="eager">
           <span><b>Marchen "March" Rosemyne</b></span><br /><br /><br />
         </button>
-        <button class="gallery-card" type="button" data-open-gallery="relic-modal">
-          <img class="modal-art" src="https://i.imgur.com/da97X1Y.png" alt="Florence from Shattered Legends" referrerpolicy="no-referrer" loading="eager">
+        <button class="gallery-card" type="button" data-open-gallery="giryn-modal">
+          <img class="modal-art" src="https://i.imgur.com/zuoU4zH.png" alt="Florence from Shattered Legends" referrerpolicy="no-referrer" loading="eager">
           <span><b>Giryn</b></span><br /><br /><br />
         </button>
 
@@ -600,7 +605,8 @@
   <dialog class="modal" id="team-modal" aria-labelledby="team-modal-title">
     <h2 id="team-modal-title">Credits</h2>
     <p>
-      Website design: SB
+      Website design: <a href="https://x.com/SBERBholo" target="_blank" color="blue">SB</a>
+      Icons: Quarases
     </p>
     <button class="modal-close" type="button" data-close-team>Close</button>
   </dialog>
@@ -642,35 +648,35 @@
     <button class="modal-close" type="button" data-close-character-stats>Close</button>
   </dialog>
 
-  <dialog class="modal gallery-modal" id="islands-modal" aria-labelledby="islands-title">
+  <dialog class="modal gallery-modal" id="florence-modal" aria-labelledby="islands-title">
     <img class="modal-art" src="https://pbs.twimg.com/media/HUzSOsJboAAfjKb?format=jpg&amp;name=large" alt="Florence from Shattered Legends" referrerpolicy="no-referrer" loading="eager">
     <h2 id="islands-title">Florence</h2>
     <p>[INSERT CHARACTER DESCRIPTION HERE]</p>
     <button class="modal-close" type="button" data-close-gallery>Close</button>
   </dialog>
 
-  <dialog class="modal gallery-modal" id="sea-modal" aria-labelledby="sea-title">
+  <dialog class="modal gallery-modal" id="sil-modal" aria-labelledby="sea-title">
     <img class="modal-art" src="https://pbs.twimg.com/media/HUzSOsJboAAfjKb?format=jpg&name=large" alt="The Shattered Islands">
     <h2 id="sea-title">Siliun "Sil" Fael</h2>
       <p>[INSERT CHARACTER DESCRIPTION HERE]</p>
     <button class="modal-close" type="button" data-close-gallery>Close</button>
   </dialog>
 
-  <dialog class="modal gallery-modal" id="ship-modal" aria-labelledby="ship-title">
+  <dialog class="modal gallery-modal" id="kaz-modal" aria-labelledby="ship-title">
     <img class="modal-art" src="https://pbs.twimg.com/media/HUzSOsJboAAfjKb?format=jpg&name=large" alt="The Shattered Islands">
     <h2 id="ship-title">Kaz Oogod</h2>
       <p>[INSERT CHARACTER DESCRIPTION HERE]</p>
     <button class="modal-close" type="button" data-close-gallery>Close</button>
   </dialog>
 
-  <dialog class="modal gallery-modal" id="storm-modal" aria-labelledby="storm-title">
+  <dialog class="modal gallery-modal" id="march-modal" aria-labelledby="storm-title">
     <img class="modal-art" src="https://pbs.twimg.com/media/HUzSOsJboAAfjKb?format=jpg&name=large" alt="The Shattered Islands">
     <h2 id="storm-title">Marchen "March" Rosemyne</h2>
       <p>[INSERT CHARACTER DESCRIPTION HERE]</p>
     <button class="modal-close" type="button" data-close-gallery>Close</button>
   </dialog>
 
-  <dialog class="modal gallery-modal" id="relic-modal" aria-labelledby="relic-title">
+  <dialog class="modal gallery-modal" id="giryn-modal" aria-labelledby="relic-title">
      <img class="modal-art" src="https://pbs.twimg.com/media/HUzSOsJboAAfjKb?format=jpg&name=large" alt="The Shattered Islands">
     <h2 id="relic-title">Giryn</h2>
       <p>[INSERT CHARACTER DESCRIPTION HERE]</p>
