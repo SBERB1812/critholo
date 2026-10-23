@@ -387,6 +387,60 @@
       text-decoration-thickness: 2px;
     }
 
+    .news-label {
+      display: block;
+      margin-bottom: 8px;
+      color: #c5c2c4;
+      font-size: 0.85rem;
+    }
+
+    .news-select {
+      width: 100%;
+      min-height: 46px;
+      margin: 0 0 20px;
+      padding: 0 12px;
+      border: 1px solid rgb(226 165 108 / 65%);
+      border-radius: 3px;
+      background: #11131b;
+      color: #f6f2e9;
+      font: inherit;
+    }
+
+    .news-content {
+      min-height: 100px;
+      padding: 18px;
+      border: 1px solid rgb(255 255 255 / 10%);
+      border-radius: 4px;
+      background: rgb(255 255 255 / 3%);
+    }
+
+    .news-content h3 {
+      margin: 0 0 8px;
+      color: #e2a56c;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.35rem;
+      font-weight: 500;
+    }
+
+    .news-content p {
+      margin: 0;
+      color: #c5c2c4;
+      line-height: 1.65;
+    }
+
+    .news-article-link {
+      display: inline-block;
+      margin-top: 14px;
+      color: #f0b978;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .news-article-link:hover,
+    .news-article-link:focus-visible {
+      color: #ffd29d;
+    }
+
     .modal-close {
       display: block;
       min-height: 44px;
@@ -498,6 +552,7 @@
       <button class="button button-secondary" type="button" data-open-CR>What is Critical Role?</button>
       <button class="button button-secondary" type="button" data-open-daggerheart>What is Dagger Heart?</button>
       <button class="button button-secondary" type="button" data-open-hololive>What is Hololive?</button>
+      <button class="button button-secondary" type="button" data-open-news>News</button>
       <button class="button button-secondary" type="button" data-open-npcs>NPCs</button>
     </nav>
 
@@ -520,19 +575,19 @@
           <span><b>Florence</b></span><br /><br /><br />
         </button>
         <button class="gallery-card" type="button" data-open-gallery="sil-modal">
-          <img class="modal-art" src="https://i.imgur.com/sDRGR3f.png" alt="Florence from Shattered Legends" referrerpolicy="no-referrer" loading="eager">
+          <img class="modal-art" src="https://i.imgur.com/sDRGR3f.png" alt="Siliun "Sil" Faell from Shattered Legends" referrerpolicy="no-referrer" loading="eager">
           <span><b>Siliun "Sil" Faell</b></span><br /><br /><br />
         </button>
         <button class="gallery-card" type="button" data-open-gallery="kaz-modal">
-          <img class="modal-art" src="https://i.imgur.com/GleYPgx.png" alt="Florence from Shattered Legends" referrerpolicy="no-referrer" loading="eager">
+          <img class="modal-art" src="https://i.imgur.com/GleYPgx.png" alt="Kaz Oogod from Shattered Legends" referrerpolicy="no-referrer" loading="eager">
           <span><b>Kaz Oogod</b></span><br /><br /><br />
         </button>
         <button class="gallery-card" type="button" data-open-gallery="march-modal">
-          <img class="modal-art" src="https://i.imgur.com/8ADBdXb.png" alt="Florence from Shattered Legends" referrerpolicy="no-referrer" loading="eager">
+          <img class="modal-art" src="https://i.imgur.com/8ADBdXb.png" alt="Marchen "March" Rosemyne from Shattered Legends" referrerpolicy="no-referrer" loading="eager">
           <span><b>Marchen "March" Rosemyne</b></span><br /><br /><br />
         </button>
         <button class="gallery-card" type="button" data-open-gallery="giryn-modal">
-          <img class="modal-art" src="https://i.imgur.com/zuoU4zH.png" alt="Florence from Shattered Legends" referrerpolicy="no-referrer" loading="eager">
+          <img class="modal-art" src="https://i.imgur.com/zuoU4zH.png" alt="Giryn from Shattered Legends" referrerpolicy="no-referrer" loading="eager">
           <span><b>Giryn</b></span><br /><br /><br />
         </button>
 
@@ -610,7 +665,7 @@
       The first three campaigns featured Matthew Mercer as the show's Dungeon Master and were set in the Exandria campaign setting; 
       Brennan Lee Mulligan of Dimension 20 is the Game Master for the fourth campaign which is set in Mulligan's setting of Aramán. <br /><br />
 
-      You can visit the website for <a href="https://www.criticalrole.com/" target="_blank" color="blue">Critical Role</a> for more information.
+      You can visit the website for <a href="https://www.criticalrole.com/" target="_blank">Critical Role</a> for more information.
     </p>
     <button class="modal-close" type="button" data-close-world>Close</button>
   </dialog>
@@ -618,7 +673,7 @@
   <dialog class="modal" id="team-modal" aria-labelledby="team-modal-title">
     <h2 id="team-modal-title">Credits</h2>
     <p>
-      Website design: <a href="https://x.com/SBERBholo" target="_blank" color="blue">SB</a><br />
+      Website design: <a href="https://x.com/SBERBholo" target="_blank">SB</a><br />
       Icons: Quarases
     </p>
     <button class="modal-close" type="button" data-close-team>Close</button>
@@ -631,7 +686,7 @@
       characters and tell a shared story together. Its Hope and Fear dice help
       shape the outcome—and the direction—of each dramatic moment.<br /><br />
 
-      You can visit the <a href="https://www.daggerheart.com/" target="_blank" color="blue">Daggerheart website</a> for more information.
+      You can visit the <a href="https://www.daggerheart.com/" target="_blank">Daggerheart website</a> for more information.
     </p>
     <button class="modal-close" type="button" data-close-daggerheart>Close</button>
   </dialog>
@@ -642,7 +697,7 @@
       Hololive Production (ホロライブプロダクション), or simply known as hololive (ホロライブ), is a Virtual Talent agency consisting of Virtual YouTubers owned by Japanese tech entertainment company COVER Corporation. 
       It consists of 66 talents, including 38 Japanese, 11 Indonesian, and 17 English-speaking Virtual YouTubers. The agency also has a branch called Holostars, which consists of male Virtual YouTubers.<br /><br />
 
-      You can visit the <a href="https://www.hololive.com/" target="_blank" color="blue">Hololive website</a> for more information.
+      You can visit the <a href="https://www.hololive.com/" target="_blank">Hololive website</a> for more information.
     </p>
     <button class="modal-close" type="button" data-close-hololive>Close</button>
   </dialog>
@@ -655,6 +710,23 @@
     <button class="modal-close" type="button" data-close-npcs>Close</button>
   </dialog>
 
+  <dialog class="modal" id="news-modal" aria-labelledby="news-modal-title">
+    <h2 id="news-modal-title">News</h2>
+    <label class="news-label" for="news-topic">Choose a news topic</label>
+    <select class="news-select" id="news-topic">
+      <option value="series">10/13/2023 - Series Announcement via Hololive</option>
+      <option value="cast">Critical Role Announces Shattered Legends</option>
+      <option value="setting">Beacon - Shattered Legends</option>
+      <option value="game">Nerissa Ravencroft YouTube Channel</option>
+    </select>
+    <section class="news-content" aria-live="polite" aria-atomic="true">
+      <h3 id="news-topic-title">Series overview</h3>
+      <p id="news-topic-description">Shattered Legends is a six-part tabletop roleplaying mini-series from hololive production and Critical Role.</p>
+      <a class="news-article-link" id="news-article-link" href="#" target="_blank" rel="noopener noreferrer" hidden>Read the news article</a>
+    </section>
+    <button class="modal-close" type="button" data-close-news>Close</button>
+  </dialog>
+
   <dialog class="modal" id="character-stats-modal" aria-labelledby="character-stats-title">
     <h2 id="character-stats-title">Character Stats</h2>
     <p>Click here for individual character stats</p>
@@ -662,35 +734,35 @@
   </dialog>
 
   <dialog class="modal gallery-modal" id="florence-modal" aria-labelledby="islands-title">
-    <img class="modal-art" src="https://pbs.twimg.com/media/HUzSOsJboAAfjKb?format=jpg&amp;name=large" alt="Florence from Shattered Legends" referrerpolicy="no-referrer" loading="eager">
+    <img class="modal-art" src="https://i.imgur.com/krGo5gQ.jpeg" alt="Florence" referrerpolicy="no-referrer" loading="eager">
     <h2 id="islands-title">Florence</h2>
     <p>[INSERT CHARACTER DESCRIPTION HERE]</p>
     <button class="modal-close" type="button" data-close-gallery>Close</button>
   </dialog>
 
   <dialog class="modal gallery-modal" id="sil-modal" aria-labelledby="sea-title">
-    <img class="modal-art" src="https://pbs.twimg.com/media/HUzSOsJboAAfjKb?format=jpg&name=large" alt="The Shattered Islands">
+    <img class="modal-art" src="https://i.imgur.com/PjVaoFz.jpeg" alt="Siliun Sil Faell" referrerpolicy="no-referrer" loading="eager">
     <h2 id="sea-title">Siliun "Sil" Fael</h2>
       <p>[INSERT CHARACTER DESCRIPTION HERE]</p>
     <button class="modal-close" type="button" data-close-gallery>Close</button>
   </dialog>
 
   <dialog class="modal gallery-modal" id="kaz-modal" aria-labelledby="ship-title">
-    <img class="modal-art" src="https://pbs.twimg.com/media/HUzSOsJboAAfjKb?format=jpg&name=large" alt="The Shattered Islands">
+    <img class="modal-art" src="https://i.imgur.com/OQzk8rc.jpeg" alt="Kaz Oogod" referrerpolicy="no-referrer" loading="eager">
     <h2 id="ship-title">Kaz Oogod</h2>
       <p>[INSERT CHARACTER DESCRIPTION HERE]</p>
     <button class="modal-close" type="button" data-close-gallery>Close</button>
   </dialog>
 
   <dialog class="modal gallery-modal" id="march-modal" aria-labelledby="storm-title">
-    <img class="modal-art" src="https://pbs.twimg.com/media/HUzSOsJboAAfjKb?format=jpg&name=large" alt="The Shattered Islands">
+    <img class="modal-art" src="https://i.imgur.com/lGJxHrk.jpeg" alt="Marchen March Rosemyne" referrerpolicy="no-referrer" loading="eager">
     <h2 id="storm-title">Marchen "March" Rosemyne</h2>
       <p>[INSERT CHARACTER DESCRIPTION HERE]</p>
     <button class="modal-close" type="button" data-close-gallery>Close</button>
   </dialog>
 
   <dialog class="modal gallery-modal" id="giryn-modal" aria-labelledby="relic-title">
-     <img class="modal-art" src="https://pbs.twimg.com/media/HUzSOsJboAAfjKb?format=jpg&name=large" alt="The Shattered Islands">
+    <img class="modal-art" src="https://i.imgur.com/5Zk0VcD.jpeg" alt="Giryn" referrerpolicy="no-referrer" loading="eager">
     <h2 id="relic-title">Giryn</h2>
       <p>[INSERT CHARACTER DESCRIPTION HERE]</p>
     <button class="modal-close" type="button" data-close-gallery>Close</button>
@@ -739,6 +811,55 @@
     document.querySelector("[data-close-npcs]").addEventListener("click", () => {
       npcsModal.close();
     });
+
+    const newsModal = document.querySelector("#news-modal");
+    document.querySelector("[data-open-news]").addEventListener("click", () => {
+      newsModal.showModal();
+    });
+    document.querySelector("[data-close-news]").addEventListener("click", () => {
+      newsModal.close();
+    });
+
+    const newsTopics = {
+      series: {
+        title: "10/13/2023 - Series Announcement via Hololive",
+        description: "October 13, 2026, Tokyo, JAPAN – COVER Corporation (Minato-ku, Tokyo; CEO: Motoaki Tanigo) announced Shattered Legends, the first-ever collaboration between Critical Role, the storytelling and media company behind the hit actual play series of the same name, and hololive production, the renowned Japanese-based virtual production group innovating immersive digital and in-person experiences via its roster of virtual talent and cutting-edge technology. Sponsored by Ultra PRO and premiering mid-November, 2026, the actual play series brings together the two casts for a new Daggerheart adventure that is canon to Critical Role’s world of Exandria. Viewers will be able to follow the campaign from start to",
+        articleUrl: "https://hololive.hololivepro.com/en/news/20261013-01-416/",
+        articleLabel: "Read more on the Hololive website"
+      },
+      cast: {
+        title: "Critical Role Announces Shattered Legends",
+        description: "Shattered Legends is a six-part hololive production x Critical Role Daggerheart mini-series set in Exandria’s Shattered Teeth, led by Matthew Mercer as the Game Master, playing with our own Marisha Ray and VTuber stars Nerissa Ravencroft, Mori Calliope, Shiori Novella, and Gigi Murin!",
+        articleUrl: "https://critrole.com/hololive/",
+        articleLabel: "Read more on the Critical Role website"
+      },
+      setting: {
+        title: "Beacon - Shattered Legends",
+        description: "On Beacon, you can enjoy additional content including Cool Down, an after episode 10-15 minute moment of the cast reflecting on the episode, along with additiona BTS content. You can get a 7 day free trial and then subscribe for $5.99 a month or $59.99 a year. All the episodes will be free on YouTube.",
+        articleUrl: "https://beacon.tv/series/shattered-legends",
+        articleLabel: "Read more on the Beacon website"
+      },
+      game: {
+        title: "Nerissa Ravencroft YouTube Channel",
+        description: "Additional behind the scenes content will be available on Nerissa Ravencroft's YouTube channel. The additional content will be paid through her YouTube memberships which cost $4.99 a month. It is unclear if the content on Nerissa's channel will be the same as the content on Beacon or if it will be different. The content on her channel will be available to members only.",
+        articleUrl: "https://www.youtube.com/channel/UC_sFNM0z0MWm9A6WlKPuMMg",
+        articleLabel: "Read about the game"
+      }
+    };
+    const newsTopicSelect = document.querySelector("#news-topic");
+    const newsTopicTitle = document.querySelector("#news-topic-title");
+    const newsTopicDescription = document.querySelector("#news-topic-description");
+    const newsArticleLink = document.querySelector("#news-article-link");
+    const updateNewsTopic = () => {
+      const topic = newsTopics[newsTopicSelect.value];
+      newsTopicTitle.textContent = topic.title;
+      newsTopicDescription.textContent = topic.description;
+      newsArticleLink.hidden = !topic.articleUrl;
+      newsArticleLink.href = topic.articleUrl || "#";
+      newsArticleLink.textContent = topic.articleLabel;
+    };
+    newsTopicSelect.addEventListener("change", updateNewsTopic);
+    updateNewsTopic();
 
     const characterStatsModal = document.querySelector("#character-stats-modal");
     document.querySelector("[data-open-character-stats]").addEventListener("click", () => {
