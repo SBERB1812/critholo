@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#11131b">
-  <meta name="description" content="Enter the fractured realm of Shattered Legends. Your story begins now.">
+  <meta name="description" content="Enter the fractured realm of Shattered Legends. Their story begins now.">
   <title>Shattered Legends — Their story begins</title>
   <style>
     :root {
@@ -374,6 +374,19 @@
       line-height: 1.75;
     }
 
+    .modal p a {
+      color: #f0b978;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
+    .modal p a:hover,
+    .modal p a:focus-visible {
+      color: #ffd29d;
+      text-decoration-thickness: 2px;
+    }
+
     .modal-close {
       display: block;
       min-height: 44px;
@@ -605,7 +618,7 @@
   <dialog class="modal" id="team-modal" aria-labelledby="team-modal-title">
     <h2 id="team-modal-title">Credits</h2>
     <p>
-      Website design: <a href="https://x.com/SBERBholo" target="_blank" color="blue">SB</a>
+      Website design: <a href="https://x.com/SBERBholo" target="_blank" color="blue">SB</a><br />
       Icons: Quarases
     </p>
     <button class="modal-close" type="button" data-close-team>Close</button>
