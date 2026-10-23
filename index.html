@@ -347,6 +347,10 @@
       box-shadow: 0 24px 80px rgb(0 0 0 / 55%);
     }
 
+    #character-stats-modal {
+      width: min(1200px, calc(100% - 32px));
+    }
+
     .modal-art {
       display: block;
       width: 100%;
@@ -499,6 +503,49 @@
       background: #11131b;
       color: #f6f2e9;
       font: inherit;
+    }
+
+    .episode-stats-wrap {
+      overflow-x: auto;
+      border: 1px solid rgb(255 255 255 / 12%);
+      border-radius: 5px;
+    }
+
+    .episode-stats-table {
+      width: 100%;
+      min-width: 900px;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    .episode-stats-table caption {
+      padding: 12px;
+      color: #e2a56c;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.2rem;
+      text-align: left;
+    }
+
+    .episode-stats-table th,
+    .episode-stats-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid rgb(255 255 255 / 10%);
+      white-space: nowrap;
+    }
+
+    .episode-stats-table thead th {
+      background: rgb(226 165 108 / 10%);
+      color: #e2a56c;
+      font-size: 0.76rem;
+      text-transform: uppercase;
+    }
+
+    .episode-stats-table tbody th {
+      color: #e4dfd9;
+    }
+
+    .episode-stats-table td {
+      color: #c5c2c4;
     }
 
     .news-content {
@@ -824,7 +871,35 @@
 
   <dialog class="modal" id="character-stats-modal" aria-labelledby="character-stats-title">
     <h2 id="character-stats-title">Character Stats</h2>
-    <p>Click here for individual character stats</p>
+    <label class="news-label" for="episode-stats-select">Choose an episode</label>
+    <select class="news-select" id="episode-stats-select">
+      <option value="1">Episode 1</option>
+      <option value="2">Episode 2</option>
+      <option value="3">Episode 3</option>
+      <option value="4">Episode 4</option>
+      <option value="5">Episode 5</option>
+      <option value="6">Episode 6</option>
+    </select>
+    <div class="episode-stats-wrap">
+      <table class="episode-stats-table">
+        <caption id="episode-stats-caption">Episode 1</caption>
+        <thead>
+          <tr>
+            <th scope="col">Character</th>
+            <th scope="col">Deaths</th>
+            <th scope="col">Hope</th>
+            <th scope="col">Fear</th>
+            <th scope="col">Spells</th>
+            <th scope="col">Damage Dealt</th>
+            <th scope="col">Damage Taken</th>
+            <th scope="col">Heals</th>
+            <th scope="col">Kills</th>
+            <th scope="col">KOs</th>
+          </tr>
+        </thead>
+        <tbody id="episode-stats-body"></tbody>
+      </table>
+    </div>
     <button class="modal-close" type="button" data-close-character-stats>Close</button>
   </dialog>
 
@@ -1132,6 +1207,42 @@
     updateNewsTopic();
 
     const characterStatsModal = document.querySelector("#character-stats-modal");
+    const episodeStatsSelect = document.querySelector("#episode-stats-select");
+    const episodeStatsBody = document.querySelector("#episode-stats-body");
+    const episodeStatsCaption = document.querySelector("#episode-stats-caption");
+    const episodeCharacters = ["Florence", "Sil", "Kaz", "March", "Giryn"];
+    const episodeStatFields = [
+      "Deaths",
+      "Hope",
+      "Fear",
+      "Spells",
+      "Damage Dealt",
+      "Damage Taken",
+      "Heals",
+      "Kills",
+      "KOs"
+    ];
+    const renderEpisodeStats = () => {
+      episodeStatsCaption.textContent = `Episode ${episodeStatsSelect.value}`;
+      episodeStatsBody.replaceChildren();
+      episodeCharacters.forEach((character) => {
+        const row = document.createElement("tr");
+        const name = document.createElement("th");
+        name.scope = "row";
+        name.textContent = character;
+        row.append(name);
+
+        episodeStatFields.forEach(() => {
+          const cell = document.createElement("td");
+          cell.textContent = "—";
+          row.append(cell);
+        });
+        episodeStatsBody.append(row);
+      });
+    };
+    episodeStatsSelect.addEventListener("change", renderEpisodeStats);
+    renderEpisodeStats();
+
     document.querySelector("[data-open-character-stats]").addEventListener("click", () => {
       characterStatsModal.showModal();
     });
