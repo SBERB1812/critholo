@@ -1081,6 +1081,7 @@
       <section class="location-description" aria-live="polite" aria-atomic="true">
         <h3 id="convention-name">Supernova Comic Con &amp; Gaming</h3>
         <p id="convention-details">November 6–8, 2026<br>Brisbane, Australia</p>
+        <a class="news-article-link" id="convention-link" href="#" target="_blank" rel="noopener noreferrer" hidden>Visit the convention website</a>
       </section>
     </div>
     <button class="modal-close" type="button" data-close-convention-tour>Close</button>
@@ -1538,10 +1539,19 @@
     const conventionButtons = document.querySelectorAll("[data-convention]");
     const conventionName = document.querySelector("#convention-name");
     const conventionDetailsText = document.querySelector("#convention-details");
+    const conventionLink = document.querySelector("#convention-link");
     const updateConvention = (button) => {
       const convention = conventionDetails[button.dataset.convention];
       conventionName.textContent = convention.name;
       conventionDetailsText.textContent = convention.details;
+      if (convention.url && convention.linkText) {
+        conventionLink.href = convention.url;
+        conventionLink.textContent = convention.linkText;
+        conventionLink.hidden = false;
+      } else {
+        conventionLink.hidden = true;
+        conventionLink.removeAttribute("href");
+      }
       conventionButtons.forEach((item) => {
         item.setAttribute("aria-pressed", String(item === button));
       });
