@@ -6,6 +6,12 @@
   <meta name="theme-color" content="#11131b">
   <meta name="description" content="Enter the fractured realm of Shattered Legends. Their story begins now.">
   <title>Shattered Legends — Their story begins</title>
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Shattered Legends">
+  <meta property="og:description" content="Enter the fractured realm of Shattered Legends. Their story begins now.">
+  <meta property="og:image" content="https://raw.githubusercontent.com/SBERB1812/critholo/refs/heads/main/FullSL.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  
   <style>
     :root {
       color-scheme: dark;
@@ -351,6 +357,65 @@
       width: min(1200px, calc(100% - 32px));
     }
 
+    #locations-modal {
+      width: min(1000px, calc(100% - 32px));
+    }
+
+    .location-layout {
+      display: grid;
+      grid-template-columns: minmax(170px, 0.7fr) minmax(0, 1.8fr);
+      gap: 24px;
+    }
+
+    .location-nav {
+      display: grid;
+      align-content: start;
+      gap: 8px;
+    }
+
+    .location-button {
+      min-height: 44px;
+      padding: 10px 14px;
+      border: 1px solid rgb(255 255 255 / 12%);
+      border-radius: 3px;
+      background: rgb(255 255 255 / 3%);
+      color: #e4dfd9;
+      cursor: pointer;
+      font: inherit;
+      text-align: left;
+    }
+
+    .location-button:hover,
+    .location-button:focus-visible,
+    .location-button[aria-pressed="true"] {
+      border-color: #e2a56c;
+      background: rgb(226 165 108 / 12%);
+      color: #ffd29d;
+    }
+
+    .location-description {
+      min-height: 220px;
+      padding: 22px;
+      border: 1px solid rgb(255 255 255 / 10%);
+      border-radius: 4px;
+      background: rgb(255 255 255 / 3%);
+    }
+
+    .location-description h3 {
+      margin: 0 0 12px;
+      color: #e2a56c;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.5rem;
+      font-weight: 500;
+    }
+
+    .location-description p {
+      margin: 0;
+      color: #c5c2c4;
+      line-height: 1.75;
+      white-space: pre-line;
+    }
+
     .modal-art {
       display: block;
       width: 100%;
@@ -568,6 +633,7 @@
       margin: 0;
       color: #c5c2c4;
       line-height: 1.65;
+      white-space: pre-line;
     }
 
     .news-article-link {
@@ -676,10 +742,25 @@
         padding: 24px;
       }
 
+      .location-layout {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .location-nav {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .location-button {
+        text-align: center;
+      }
+
       footer {
         gap: 12px;
         font-size: 0.7rem;
       }
+
+      
     }
   </style>
 </head>
@@ -690,6 +771,8 @@
       <button class="team-button" type="button" data-open-team>Credits</button>
     </header>
 
+
+<!--THIS IS THE LEFT SIDE NAVIGATION-->
     <nav class="side-menu" aria-label="Explore">
       <button class="button button-secondary" type="button" data-open-CR>What is Critical Role?</button>
       <button class="button button-secondary" type="button" data-open-daggerheart>What is Dagger Heart?</button>
@@ -710,6 +793,7 @@
       </section>
     </main>
 
+    <!--THIS IS THE ICON SELECTIONS FOR CAST-->
     <section class="gallery" aria-labelledby="gallery-title">
       <h2 class="gallery-heading" id="gallery-title">Learn more about the characters</h2>
       <div class="gallery-grid">
@@ -737,6 +821,8 @@
       </div>
     </section>
 
+
+    <!--THIS IS THE MAIN PAGE TRACKED STATS-->
     <section class="adventure-log" aria-labelledby="adventure-log-title">
       <h2 id="adventure-log-title">Tracked Stats Across All Episodes</h2>
       <div class="table-wrap">
@@ -798,6 +884,8 @@
     </footer>
   </div>
 
+
+  <!--THIS IS THE WHAT IS CR BUTTON MODAL-->
   <dialog class="modal" id="world-modal" aria-labelledby="world-modal-title">
     <h2 id="world-modal-title">What is Critical Role?</h2>
     <p>
@@ -813,6 +901,8 @@
     <button class="modal-close" type="button" data-close-world>Close</button>
   </dialog>
 
+
+  <!--THIS IS THE TEAM CREDITS MODAL-->
   <dialog class="modal" id="team-modal" aria-labelledby="team-modal-title">
     <h2 id="team-modal-title">Credits</h2>
     <p>
@@ -822,6 +912,7 @@
     <button class="modal-close" type="button" data-close-team>Close</button>
   </dialog>
 
+  <!--THIS IS THE DAGGERHEART MODAL-->
   <dialog class="modal" id="daggerheart-modal" aria-labelledby="daggerheart-modal-title">
     <h2 id="daggerheart-modal-title">What is Daggerheart?</h2>
     <p>
@@ -834,6 +925,7 @@
     <button class="modal-close" type="button" data-close-daggerheart>Close</button>
   </dialog>
 
+  <!--THIS IS THE HOLOLIVE MODAL-->
   <dialog class="modal" id="hololive-modal" aria-labelledby="hololive-modal-title">
     <h2 id="hololive-modal-title">What is Hololive?</h2>
     <p>
@@ -845,6 +937,7 @@
     <button class="modal-close" type="button" data-close-hololive>Close</button>
   </dialog>
 
+  <!--THIS IS THE NPCS MODAL-->
   <dialog class="modal" id="npcs-modal" aria-labelledby="npcs-modal-title">
     <h2 id="npcs-modal-title">NPCs</h2>
     <p>
@@ -853,20 +946,35 @@
     <button class="modal-close" type="button" data-close-npcs>Close</button>
   </dialog>
 
+    <!--THIS IS THE LOCATIONS MODAL-->
   <dialog class="modal" id="locations-modal" aria-labelledby="locations-modal-title">
     <h2 id="locations-modal-title">Locations</h2>
-    <p>Explore the islands and places of the Shattered Teeth. Location details will be added here.</p>
-    <button class="modal-close" type="button" data-close-locations>Close</button>
-  </dialog>
+      <div class="location-layout">
+        <nav class="location-nav" aria-label="Locations">
+          <button class="location-button" type="button" data-location="teeth" aria-pressed="true">The Shattered Teeth</button>
+          <button class="location-button" type="button" data-location="exandria" aria-pressed="false">Exandria</button>
+          <button class="location-button" type="button" data-location="taldorei" aria-pressed="false">Tal'Dorei</button>
+          <button class="location-button" type="button" data-location="wildemount" aria-pressed="false">Wildemount</button>
+        </nav>
+        <section class="location-description" aria-live="polite" aria-atomic="true">
+          <h3 id="location-title">The Shattered Teeth</h3>
+          <p id="location-text">The Shattered Teeth is a major archipelago of 43 islands, located on Exandria southeast of Tal'Dorei and far south of Wildemount, past the persistent fogbank known as the Fool's Curtain. Varying in size from mile-wide reef-top isles to large, city-holding islands like Ruukva, this archipelago is mainly split between two conflicting societies: the Ossended Host and the Wanderman Assembly.</p>
+        </section>
+      </div>
+      <button class="modal-close" type="button" data-close-locations>Close</button>
+    </dialog>
 
+    <!--THIS IS THE NEWS MODAL-->
   <dialog class="modal" id="news-modal" aria-labelledby="news-modal-title">
     <h2 id="news-modal-title">News</h2>
     <label class="news-label" for="news-topic">Choose a news topic</label>
     <select class="news-select" id="news-topic">
+        <option value="conventiontour">Shattered Legends Convention Tour</option>
       <option value="series">10/13/2026 - Series Announcement via Hololive</option>
       <option value="cast">Critical Role Announces Shattered Legends</option>
       <option value="setting">Beacon - Shattered Legends</option>
       <option value="game">Nerissa Ravencroft YouTube Channel</option>
+      
     </select>
     <section class="news-content" aria-live="polite" aria-atomic="true">
       <h3 id="news-topic-title">Series overview</h3>
@@ -876,6 +984,7 @@
     <button class="modal-close" type="button" data-close-news>Close</button>
   </dialog>
 
+    <!--THIS IS THE CHARACTER STATS MODAL-->
   <dialog class="modal" id="character-stats-modal" aria-labelledby="character-stats-title">
     <h2 id="character-stats-title">Character Stats</h2>
     <label class="news-label" for="episode-stats-select">Choose an episode</label>
@@ -910,6 +1019,7 @@
     <button class="modal-close" type="button" data-close-character-stats>Close</button>
   </dialog>
 
+  <!--THIS IS THE FLORENCE MODAL-->
   <dialog class="modal gallery-modal" id="florence-modal" aria-labelledby="islands-title">
     <img class="modal-art" src="https://raw.githubusercontent.com/SBERB1812/critholo/refs/heads/main/MarishaFull.jpg" alt="Florence" referrerpolicy="no-referrer" loading="eager">
     <h2 id="islands-title">Florence</h2>
@@ -952,6 +1062,7 @@
     <button class="modal-close" type="button" data-close-gallery>Close</button>
   </dialog>
 
+  <!--THIS IS THE SIL MODAL-->
   <dialog class="modal gallery-modal" id="sil-modal" aria-labelledby="sea-title">
     <img class="modal-art" src="https://raw.githubusercontent.com/SBERB1812/critholo/refs/heads/main/NerissaFull.jpg" alt="Siliun Sil Faell" referrerpolicy="no-referrer" loading="eager">
     <h2 id="sea-title">Siliun "Sil" Fael</h2>
@@ -994,6 +1105,7 @@
     <button class="modal-close" type="button" data-close-gallery>Close</button>
   </dialog>
 
+  <!--THIS IS THE KAZ MODAL-->
   <dialog class="modal gallery-modal" id="kaz-modal" aria-labelledby="ship-title">
     <img class="modal-art" src="https://raw.githubusercontent.com/SBERB1812/critholo/refs/heads/main/CalliFull.jpg" alt="Kaz Oogod" referrerpolicy="no-referrer" loading="eager">
     <h2 id="ship-title">Kaz Oogod</h2>
@@ -1036,6 +1148,7 @@
     <button class="modal-close" type="button" data-close-gallery>Close</button>
   </dialog>
 
+  <!--THIS IS THE MARCH MODAL-->
   <dialog class="modal gallery-modal" id="march-modal" aria-labelledby="storm-title">
     <img class="modal-art" src="https://raw.githubusercontent.com/SBERB1812/critholo/refs/heads/main/ShioriFull.jpg" alt="Marchen March Rosemyne" referrerpolicy="no-referrer" loading="eager">
     <h2 id="storm-title">Marchen "March" Rosemyne</h2>
@@ -1078,6 +1191,7 @@
     <button class="modal-close" type="button" data-close-gallery>Close</button>
   </dialog>
 
+  <!--THIS IS THE GIRYN MODAL-->
   <dialog class="modal gallery-modal" id="giryn-modal" aria-labelledby="relic-title">
     <img class="modal-art" src="https://raw.githubusercontent.com/SBERB1812/critholo/refs/heads/main/GigiFull.jpg" alt="Giryn" referrerpolicy="no-referrer" loading="eager">
     <h2 id="relic-title">Giryn</h2>
@@ -1172,6 +1286,38 @@
       locationsModal.close();
     });
 
+    const locationDescriptions = {
+      teeth: {
+        title: "The Shattered Teeth",
+        text: "An island chain in Exandria and the setting for Shattered Legends. Its scattered shores and surrounding waters form the backdrop for the adventure."
+      },
+      exandria: {
+        title: "Exandria",
+        text: "Exandria exists in one of the many Material Planes,[6] although it features connections to other planes of existence, such as the portals to the elemental planes guarded by the Ashari. "
+      },
+      taldorei: {
+        title: "Tal'Dorei",
+        text: "Tal'Dorei is the name used by humans to refer to the entire continent on Exandria in which the Republic of Tal'Dorei rests, though this is purely a human conflation. The Elvish name for the continent is Gwessar, meaning 'Fields of Joy'."
+      },
+      wildemount: {
+        title: "Wildemount",
+        text: "A mountainous region in Exandria, famous for its natural beauty and the presence of ancient ruins. It lies to the northeast of Tal'Dorei"
+      },
+    };
+    const locationButtons = document.querySelectorAll("[data-location]");
+    const locationTitle = document.querySelector("#location-title");
+    const locationText = document.querySelector("#location-text");
+    locationButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const location = locationDescriptions[button.dataset.location];
+        locationTitle.textContent = location.title;
+        locationText.textContent = location.text;
+        locationButtons.forEach((item) => {
+          item.setAttribute("aria-pressed", String(item === button));
+        });
+      });
+    });
+
     const newsModal = document.querySelector("#news-modal");
     document.querySelector("[data-open-news]").addEventListener("click", () => {
       newsModal.showModal();
@@ -1180,12 +1326,14 @@
       newsModal.close();
     });
 
+    
     const newsTopics = {
+        
       series: {
         title: "10/13/2026 - Series Announcement via Hololive",
-        description: "October 13, 2026, Tokyo, JAPAN – COVER Corporation (Minato-ku, Tokyo; CEO: Motoaki Tanigo) announced Shattered Legends, the first-ever collaboration between Critical Role, the storytelling and media company behind the hit actual play series of the same name, and hololive production, the renowned Japanese-based virtual production group innovating immersive digital and in-person experiences via its roster of virtual talent and cutting-edge technology. Sponsored by Ultra PRO and premiering mid-November, 2026, the actual play series brings together the two casts for a new Daggerheart adventure that is canon to Critical Role’s world of Exandria. Viewers will be able to follow the campaign from start to",
+        description: "October 13, 2026, Tokyo, JAPAN – COVER Corporation (Minato-ku, Tokyo; CEO: Motoaki Tanigo) announced Shattered Legends, the first-ever collaboration between Critical Role, the storytelling and media company behind the hit actual play series of the same name, and hololive production, the renowned Japanese-based virtual production group innovating immersive digital and in-person experiences via its roster of virtual talent and cutting-edge technology.\n\nSponsored by Ultra PRO and premiering mid-November, 2026, the actual play series brings together the two casts for a new Daggerheart adventure that is canon to Critical Role’s world of Exandria.",
         articleUrl: "https://hololive.hololivepro.com/en/news/20261013-01-416/",
-        articleLabel: "Read more on the Hololive website"
+        articleLabel: "Read more on the Hololive' website'"
       },
       cast: {
         title: "Critical Role Announces Shattered Legends",
@@ -1204,7 +1352,13 @@
         description: "Additional behind the scenes content will be available on Nerissa Ravencroft's YouTube channel. The additional content will be paid through her YouTube memberships which cost $4.99 a month. It is unclear if the content on Nerissa's channel will be the same as the content on Beacon or if it will be different. The content on her channel will be available to members only.",
         articleUrl: "https://www.youtube.com/channel/UC_sFNM0z0MWm9A6WlKPuMMg",
         articleLabel: "Read about the game"
-      }
+      },
+      conventiontour: {
+        title: "10/23/2026 - Shattered Legends Convention Tour",
+        description: "On October 23, 2026, Critical Role and hololive production announced a convention tour for Shattered Legends. \n\nThe tour will visit a total of four conventions: \n\u2022 Supernova comic con & gaming (November 6-8 in Brisbane, Australia)\n\u2022 Dreamhack (November 27-29) in Stockholm, Sweden\n\u2022 Animefrontier (December 4-6) in Fort Worth, Texas\n\u2022 Comic Fiest (December 19-20) in Kuala Lumpur, Malaysia.\n\nThe tour will feature panels with various cast of Shattered Legends discussing the series and the campaign directly as it progresses.",
+        articleUrl: "https://x.com/hololive_En/status/2113827827007287793",
+        articleLabel: "Read more on the Hololive's Twitter'"
+      },
     };
     const newsTopicSelect = document.querySelector("#news-topic");
     const newsTopicTitle = document.querySelector("#news-topic-title");
