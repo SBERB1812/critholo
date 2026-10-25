@@ -345,11 +345,13 @@
     }
 
     .modal {
-      width: min(900px, calc(100% - 32px));
+      width: min(900px, calc(100vw - 32px));
       max-height: calc(100vh - 32px);
+      max-height: calc(100dvh - 32px);
       overflow-y: auto;
+      overscroll-behavior: contain;
       max-width: none;
-      padding: 32px;
+      padding: clamp(16px, 3vw, 24px) clamp(16px, 4vw, 36px);
       border: 1px solid rgb(226 165 108 / 45%);
       border-radius: 6px;
       background: #191a22;
@@ -399,11 +401,15 @@
     }
 
     #character-stats-modal {
-      width: min(1200px, calc(100% - 32px));
+      width: min(900px, calc(100vw - 32px));
     }
 
     #locations-modal {
-      width: min(1000px, calc(100% - 32px));
+      width: min(900px, calc(100vw - 32px));
+    }
+
+    #external-websites-modal {
+      width: min(900px, calc(100vw - 32px));
     }
 
     .location-layout {
@@ -439,11 +445,24 @@
     }
 
     .location-description {
-      min-height: 220px;
+      height: 260px;
+      overflow-y: auto;
       padding: 22px;
       border: 1px solid rgb(255 255 255 / 10%);
       border-radius: 4px;
       background: rgb(255 255 255 / 3%);
+    }
+
+    #external-websites-modal .location-description {
+      height: auto;
+      min-height: 260px;
+      overflow: visible;
+    }
+
+    #convention-tour-modal .location-description {
+      height: auto;
+      min-height: 260px;
+      overflow: visible;
     }
 
     .location-description h3 {
@@ -469,6 +488,37 @@
       border-radius: 4px;
       background: #11131b;
       object-fit: contain;
+    }
+
+    .gallery-modal .modal-art {
+      max-height: 28vh;
+      margin-bottom: 14px;
+    }
+
+    .modal.gallery-modal h2 {
+      margin-bottom: 10px;
+    }
+
+    .gallery-modal .character-info,
+    .gallery-modal .character-stats,
+    .gallery-modal .character-details {
+      margin-top: 12px;
+    }
+
+    .gallery-modal .character-info caption,
+    .gallery-modal .character-stats caption,
+    .gallery-modal .character-details caption {
+      margin-bottom: 6px;
+      font-size: 1.1rem;
+    }
+
+    .gallery-modal .character-info th,
+    .gallery-modal .character-info td,
+    .gallery-modal .character-stats th,
+    .gallery-modal .character-stats td,
+    .gallery-modal .character-details th,
+    .gallery-modal .character-details td {
+      padding: 5px 10px;
     }
 
     .modal h2 {
@@ -795,6 +845,10 @@
         text-align: center;
       }
 
+      .location-description {
+        height: 220px;
+      }
+
       footer {
         gap: 12px;
         font-size: 0.7rem;
@@ -830,6 +884,7 @@
       <button class="button button-secondary" type="button" data-open-npcs>NPCs</button>
       <button class="button button-secondary" type="button" data-open-locations>Locations</button>
       <button class="button button-secondary" type="button" data-open-convention-tour>Convention Tour</button>
+      <button class="button button-secondary" type="button" data-open-external-websites>Official Websites</button>
     </nav>
 
 
@@ -1031,6 +1086,24 @@
     <button class="modal-close" type="button" data-close-convention-tour>Close</button>
   </dialog>
 
+  <dialog class="modal" id="external-websites-modal" aria-labelledby="external-websites-title">
+    <h2 id="external-websites-title">Official Websites</h2>
+    <div class="location-layout">
+      <nav class="location-nav" aria-label="External websites">
+        <button class="location-button" type="button" data-external-site="critical-role" aria-pressed="true">Critical Role</button>
+        <button class="location-button" type="button" data-external-site="nerissa" aria-pressed="false">Nerissa Ravencroft YouTube Channel</button>
+        <button class="location-button" type="button" data-external-site="hololive" aria-pressed="false">Hololive</button>
+        <button class="location-button" type="button" data-external-site="beacon" aria-pressed="false">Beacon</button>
+      </nav>
+      <section class="location-description" aria-live="polite" aria-atomic="true">
+        <h3 id="external-site-title">Critical Role</h3>
+        <p id="external-site-description">Shattered Legends is a six-part hololive production x Critical Role Daggerheart mini-series set in Exandria’s Shattered Teeth, led by Matthew Mercer as the Game Master, playing with our own Marisha Ray and VTuber stars Nerissa Ravencroft, Mori Calliope, Shiori Novella, and Gigi Murin!"</p>
+        <a class="news-article-link" id="external-site-link" href="https://www.criticalrole.com/" target="_blank" rel="noopener noreferrer">Visit Critical Role</a>
+      </section>
+    </div>
+    <button class="modal-close" type="button" data-close-external-websites>Close</button>
+  </dialog>
+
     <!--THIS IS THE NEWS MODAL-->
   <dialog class="modal" id="news-modal" aria-labelledby="news-modal-title">
     <h2 id="news-modal-title">News</h2>
@@ -1038,8 +1111,6 @@
     <select class="news-select" id="news-topic">
         <option value="conventiontour">Shattered Legends Convention Tour</option>
       <option value="series">10/13/2026 - Series Announcement via Hololive</option>
-      <option value="cast">Critical Role Announces Shattered Legends</option>
-      <option value="setting">Beacon - Shattered Legends</option>
       <option value="game">Nerissa Ravencroft YouTube Channel</option>
       
     </select>
@@ -1387,35 +1458,99 @@
       closeModal(conventionTourModal);
     });
 
+    const externalWebsitesModal = document.querySelector("#external-websites-modal");
+    document.querySelector("[data-open-external-websites]").addEventListener("click", () => {
+      externalWebsitesModal.showModal();
+    });
+    document.querySelector("[data-close-external-websites]").addEventListener("click", () => {
+      closeModal(externalWebsitesModal);
+    });
+
+    const externalWebsiteDetails = {
+      "critical-role": {
+        title: "Critical Role",
+        description: "Shattered Legends is a six-part hololive production x Critical Role Daggerheart mini-series set in Exandria’s Shattered Teeth, led by Matthew Mercer as the Game Master, playing with our own Marisha Ray and VTuber stars Nerissa Ravencroft, Mori Calliope, Shiori Novella, and Gigi Murin!",
+        url: "https://critrole.com/hololive/",
+        linkText: "Read more on the Critical Role website"
+      },
+       hololive: {
+        title: "Hololive",
+        description: "Shattered Legends is an all-new collaborative table-top role-playing six-part miniseries by hololive production and Critical Role. Led by Critical Role’s Game Master Matthew Mercer, join the cast of hololive production and Critical Role as they embark on an perilous adventure in the fantasy world of Exandria.\n\nWill the dice be in our heroes’ favor…?",
+        url: "https://hololive.hololivepro.com/en/special/23054/",
+        linkText: "Read more on the Hololive website"
+      },
+      nerissa: {
+        title: "Nerissa Ravencroft YouTube Channel",
+        description: "Additional behind the scenes content will be available on Nerissa Ravencroft's YouTube channel. The additional content will be paid through her YouTube memberships which cost $4.99 a month. It is unclear if the content on Nerissa's channel will be the same as the content on Beacon or if it will be different. The content on her channel will be available to members only.",
+        url: "https://www.youtube.com/channel/UC_sFNM0z0MWm9A6WlKPuMMg",
+        linkText: "Follow and subscribe to Nerissa's YouTube channel"
+      },
+      beacon: {
+        title: "Beacon",
+        description: "On Beacon, you can enjoy additional content including Cool Down, an after episode 10-15 minute moment of the cast reflecting on the episode, along with additiona BTS content. You can get a 7 day free trial and then subscribe for $5.99 a month or $59.99 a year. All the episodes will be free on YouTube.",
+        url: "https://beacon.tv/series/shattered-legends",
+        linkText: "Read more on the Beacon website"
+      }
+    };
+    const externalSiteButtons = document.querySelectorAll("[data-external-site]");
+    const externalSiteTitle = document.querySelector("#external-site-title");
+    const externalSiteDescription = document.querySelector("#external-site-description");
+    const externalSiteLink = document.querySelector("#external-site-link");
+    externalSiteButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const site = externalWebsiteDetails[button.dataset.externalSite];
+        externalSiteTitle.textContent = site.title;
+        externalSiteDescription.textContent = site.description;
+        externalSiteLink.href = site.url;
+        externalSiteLink.textContent = site.linkText;
+        externalSiteButtons.forEach((item) => {
+          item.setAttribute("aria-pressed", String(item === button));
+        });
+      });
+    });
+
     const conventionDetails = {
       supernova: {
         name: "Supernova Comic Con & Gaming",
-        details: "November 6–8, 2026\nBrisbane, Australia"
+        details: "November 6–8, 2026 in Brisbane, Australia\n\nShattered Legends will be featured at Supernova Comic Con & Gaming. The convention will feature a panel with Nerissa Ravencroft and Gigi Murin during which they will be completing challenges with the audience's help! You might even be in for some special surprises!\n\nThe panel will be held on Sunday, November 8, at 1:00 pm at the Godzilla Minus Zero Theater.\n\nTickets:\n\u2022 Supa-Fan 3-Day pass: AUD $78.00\n\u2022 Friday pass: AUD $30.50.00\n\u2022 Saturday pass: AUD $50.00\n\u2022 Sunday pass: AUD $45.50.00\n\u2022 Children (0-12 years) AUD $0.00",
+        url: "https://www.supanova.com.au/events/brisbane-2026/shattered-legends-fan-panel/",
+        linkText: "Read more on the Supernova website"
       },
       dreamhack: {
         name: "DreamHack",
-        details: "November 27–29, 2026\nStockholm, Sweden"
+        details: "November 27–29, 2026 in Stockholm, Sweden\n\nThere is currently no listed information for the date and time of the panel at the convention.\n\nAdditionally, the convention is hosting a Super Karaoke Party with Nerissa Ravencroft, Mori Calliope, and Elizabeth Rose Bloodflame. Tickets outside of the required convention tickets are requried in order to be able to attend this session.\n\nLastly, they are holding Meet and Greets for other Hololive talents who will be guests at the convention. You may only apply to 1 talent for the Meet and Greet and this requires the purchase of a Dreamhack badge before application.\n\nThe talents for the Meet and Greets are\n\u2022 Airani Iofifteen (12:55 CET Friday)\n\u2022 Kureiji Ollie (12:55 CET Friday)\n\u2022 Moona Hoshinova (13:55 CET Friday)\n\u2022 Pavolia Reine (13:55 CET Friday)\n\u2022 Kaela Kovalskia (19:10 CET Friday)\n\u2022 Raora Panthera (19:10 CET Friday)\n\u2022 Vestia Zeta (18:05 CET Saturday)\n\u2022 Shiori Novella (18:05 CET Saturday)\n\u2022 Kobo Kanaeru (18:55 CET Saturday)\n\u2022 Takanashi Kiara (18:55 CET Saturday)\n\u2022 Jurard T Rexford (14:15 CET Sunday)\n\u2022 Octavio (14:15 CET Sunday)\n\nTickets\n\u2022 3 Day + DH x hololive Meet PREMIUM add-on: 1,348 kr\n\u2022 Saturday + DH x hololive Meet PREMIUM add-on: 1,038 kr\n\u2022 3 Day + DH x hololive Meet add-on: 1,048 kr\n\u2022 Saturday + DH x hololive Meet add-on: 738 kr\n\u2022 DH x hololive Meet PREMIUM add-on: 798 kr\n\u2022 DH x hololive Meet add-on: 498 kr",
+        url: "https://dreamhack.com/stockholm/hololive/",
+        linkText: "Read more on the DreamHack Stockholm website"
       },
       animefrontier: {
         name: "Anime Frontier",
-        details: "December 4–6, 2026\nFort Worth, Texas"
+        details: "December 4–6, 2026 in Fort Worth, Texas\n\nThis December, join hololive as they celebrate their 5th year of activities! They’ll be rolling onto the Anime Frontier Exhibit Hall in Booth #1204 so you can immerse yourself in all things hololive all weekend long! TTRPG fan? Join us at the Main Stage learn more about Shattered Legends! This special hololive experience is included with your badge! No separate ticket needed.\n\nTickets:\n\u2022 3-Day Ticket Mailed: $85.60\n\u2022 Friday Ticket Mailed: $45.48\n\u2022 Saturday Ticket Mailed: $52.43\n\u2022 Sunday Ticket Mailed: $45.48\n\u2022 Kids 3-Day Ticket Mailed; $20.33\n\u2022 Kids Sunday Ticket Mailed (Adult Ticket Required): FREE",
+        url: "https://animefrontier.com/hololive/",
+        linkText: "Read more on the Anime Frontier website"
       },
       comicfiesta: {
         name: "Comic Fiesta",
-        details: "December 19–20, 2026\nKuala Lumpur, Malaysia"
+        details: "December 19–20, 2026 in Kuala Lumpur, Malaysia\n\nTickets:\n\u2022 Weekend Pass: RM 99\n\u2022 Saturday All Day Pass: RM 55\n\u2022 Sunday All Day Pass: RM55\n\u2022 Saturday Afternoon Pass: RM 35\n\u2022 Sunday Afternoon Pass: RM 35",
+        url: "https://comicfiesta.org/",
+        linkText: "Read more on the Comic Fiesta website"
       }
     };
     const conventionButtons = document.querySelectorAll("[data-convention]");
     const conventionName = document.querySelector("#convention-name");
     const conventionDetailsText = document.querySelector("#convention-details");
+    const updateConvention = (button) => {
+      const convention = conventionDetails[button.dataset.convention];
+      conventionName.textContent = convention.name;
+      conventionDetailsText.textContent = convention.details;
+      conventionButtons.forEach((item) => {
+        item.setAttribute("aria-pressed", String(item === button));
+      });
+    };
+
+    updateConvention(document.querySelector("[data-convention][aria-pressed='true']"));
     conventionButtons.forEach((button) => {
       button.addEventListener("click", () => {
-        const convention = conventionDetails[button.dataset.convention];
-        conventionName.textContent = convention.name;
-        conventionDetailsText.textContent = convention.details;
-        conventionButtons.forEach((item) => {
-          item.setAttribute("aria-pressed", String(item === button));
-        });
+        updateConvention(button);
       });
     });
 
@@ -1468,27 +1603,9 @@
         articleUrl: "https://hololive.hololivepro.com/en/news/20261013-01-416/",
         articleLabel: "Read more on the Hololive' website"
       },
-      cast: {
-        title: "Critical Role Announces Shattered Legends",
-        description: "Shattered Legends is a six-part hololive production x Critical Role Daggerheart mini-series set in Exandria’s Shattered Teeth, led by Matthew Mercer as the Game Master, playing with our own Marisha Ray and VTuber stars Nerissa Ravencroft, Mori Calliope, Shiori Novella, and Gigi Murin!",
-        articleUrl: "https://critrole.com/hololive/",
-        articleLabel: "Read more on the Critical Role website"
-      },
-      setting: {
-        title: "Beacon - Shattered Legends",
-        description: "On Beacon, you can enjoy additional content including Cool Down, an after episode 10-15 minute moment of the cast reflecting on the episode, along with additiona BTS content. You can get a 7 day free trial and then subscribe for $5.99 a month or $59.99 a year. All the episodes will be free on YouTube.",
-        articleUrl: "https://beacon.tv/series/shattered-legends",
-        articleLabel: "Read more on the Beacon website"
-      },
-      game: {
-        title: "Nerissa Ravencroft YouTube Channel",
-        description: "Additional behind the scenes content will be available on Nerissa Ravencroft's YouTube channel. The additional content will be paid through her YouTube memberships which cost $4.99 a month. It is unclear if the content on Nerissa's channel will be the same as the content on Beacon or if it will be different. The content on her channel will be available to members only.",
-        articleUrl: "https://www.youtube.com/channel/UC_sFNM0z0MWm9A6WlKPuMMg",
-        articleLabel: "Follow and subscribe to Nerissa's YouTube channel"
-      },
       conventiontour: {
         title: "10/23/2026 - Shattered Legends Convention Tour",
-        description: "On October 23, 2026, Critical Role and hololive production announced a convention tour for Shattered Legends. \n\nThe tour will visit a total of four conventions: \n\u2022 Supernova comic con & gaming (November 6-8 in Brisbane, Australia)\n\u2022 Dreamhack (November 27-29) in Stockholm, Sweden\n\u2022 Animefrontier (December 4-6) in Fort Worth, Texas\n\u2022 Comic Fiest (December 19-20) in Kuala Lumpur, Malaysia.\n\nThe tour will feature panels with various cast of Shattered Legends discussing the series and the campaign directly as it progresses.",
+        description: "On October 23, 2026, Critical Role and hololive production announced a convention tour for Shattered Legends. \n\nThe tour will visit a total of four conventions: \n\u2022 Supernova comic con & gaming (November 6-8 in Brisbane, Australia)\n\u2022 Dreamhack (November 27-29) in Stockholm, Sweden\n\u2022 Animefrontier (December 4-6) in Fort Worth, Texas\n\u2022 Comic Fiesta (December 19-20) in Kuala Lumpur, Malaysia.\n\nThe tour will feature panels with various cast of Shattered Legends discussing the series and the campaign directly as it progresses.",
         articleUrl: "https://x.com/hololive_En/status/2113827827007287793",
         articleLabel: "Read more on the Hololive's Twitter"
       },
