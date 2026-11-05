@@ -1660,6 +1660,8 @@
 
     const newsModal = document.querySelector("#news-modal");
     document.querySelector("[data-open-news]").addEventListener("click", () => {
+      newsTopicSelect.value = "trailer";
+      updateNewsTopic();
       newsModal.showModal();
     });
     document.querySelector("[data-close-news]").addEventListener("click", () => {
