@@ -9,11 +9,11 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="Shattered Legends">
   <meta property="og:description" content="Enter the fractured realm of Shattered Legends. Their story begins now.">
-  <meta property="og:image" content="https://raw.githubusercontent.com/SBERB1812/critholo/refs/heads/main/FullSL.jpg">
+  <meta property="og:image" content="https://raw.githubusercontent.com/SBERB1812/critholo/refs/heads/main/SLStart.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Shattered Legends">
   <meta name="twitter:description" content="Enter the fractured realm of Shattered Legends.">
-  <meta name="twitter:image" content="https://raw.githubusercontent.com/SBERB1812/critholo/refs/heads/main/FullSL.jpg">
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/SBERB1812/critholo/refs/heads/main/SLStart.jpg">
   <meta name="twitter:image:alt" content="Shattered Legends">
   
   <style>
@@ -378,6 +378,29 @@
       backdrop-filter: blur(0);
     }
 
+    .welcome-modal {
+      width: min(1000px, calc(100vw - 32px));
+      padding: 8px;
+      overflow: hidden;
+      background: #08090d;
+    }
+
+    .welcome-image-button {
+      display: block;
+      width: 100%;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .welcome-image-button img {
+      display: block;
+      width: 100%;
+      max-height: calc(100dvh - 48px);
+      object-fit: contain;
+    }
+
     @keyframes modal-open {
       from {
         opacity: 0;
@@ -724,6 +747,20 @@
       color: #c5c2c4;
       line-height: 1.65;
       white-space: pre-line;
+    }
+
+    .news-video {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      margin-top: 16px;
+      background: #000;
+    }
+
+    .news-video iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
     }
 
     .news-article-link {
@@ -1113,11 +1150,14 @@
         <option value="conventiontour">Shattered Legends Convention Tour</option>
       <option value="series">10/13/2026 - Series Announcement via Hololive</option>
       <option value="game">Nerissa Ravencroft YouTube Channel</option>
+      <option value="pcgamer">11/04/2026 - PC Gamer Interview</option>
+      <option value="trailer">11/05/2026 - Shattered Legends Trailer</option>
       
     </select>
     <section class="news-content" aria-live="polite" aria-atomic="true">
       <h3 id="news-topic-title">Series overview</h3>
       <p id="news-topic-description">Shattered Legends is a six-part tabletop roleplaying mini-series from hololive production and Critical Role.</p>
+      <div class="news-video" id="news-topic-video" hidden></div>
       <a class="news-article-link" id="news-article-link" href="#" target="_blank" rel="noopener noreferrer" hidden>Read the news article</a>
     </section>
     <button class="modal-close" type="button" data-close-news>Close</button>
@@ -1160,17 +1200,19 @@
 
   <!--THIS IS THE FLORENCE MODAL-->
   <dialog class="modal gallery-modal" id="florence-modal" aria-labelledby="islands-title">
-    <img class="modal-art" src="https://raw.githubusercontent.com/SBERB1812/critholo/refs/heads/main/MarishaFull.jpg" alt="Florence" referrerpolicy="no-referrer" loading="eager">
+    <img class="modal-art" src="https://raw.githubusercontent.com/SBERB1812/critholo/refs/heads/main/image-15.png" alt="Florence" referrerpolicy="no-referrer" loading="eager">
     <h2 id="islands-title">Florence</h2>
     <p>[INSERT CHARACTER DESCRIPTION HERE]</p>
     <table class="character-info">
       <caption>Character Information</caption>
       <tbody>
+        <tr><th scope="row">Pronouns</th><td>She/Her</td></tr>
         <tr><th scope="row">Age</th><td>—</td></tr>
-        <tr><th scope="row">Class</th><td>—</td></tr>
+        <tr><th scope="row">Class</th><td>Tidekin Witch</td></tr>
         <tr><th scope="row">Subclass</th><td>—</td></tr>
         <tr><th scope="row">Heritage</th><td>—</td></tr>
         <tr><th scope="row">Domain</th><td>—</td></tr>
+        <tr><th scope="row">Height</th><td>-</td></tr>
       </tbody>
     </table>
     <table class="character-stats">
@@ -1203,17 +1245,19 @@
 
   <!--THIS IS THE SIL MODAL-->
   <dialog class="modal gallery-modal" id="sil-modal" aria-labelledby="sea-title">
-    <img class="modal-art" src="https://raw.githubusercontent.com/SBERB1812/critholo/refs/heads/main/NerissaFull.jpg" alt="Siliun Sil Faell" referrerpolicy="no-referrer" loading="eager">
+    <img class="modal-art" src="https://raw.githubusercontent.com/SBERB1812/critholo/refs/heads/main/image-13.png" alt="Siliun Sil Faell" referrerpolicy="no-referrer" loading="eager">
     <h2 id="sea-title">Siliun "Sil" Fael</h2>
       <p>[INSERT CHARACTER DESCRIPTION HERE]</p>
     <table class="character-info">
       <caption>Character Information</caption>
       <tbody>
+        <tr><th scope="row">Pronouns</th><td>She/Her</td></tr>
         <tr><th scope="row">Age</th><td>—</td></tr>
-        <tr><th scope="row">Class</th><td>—</td></tr>
+        <tr><th scope="row">Class</th><td>Elf Rogue</td></tr>
         <tr><th scope="row">Subclass</th><td>—</td></tr>
         <tr><th scope="row">Heritage</th><td>—</td></tr>
         <tr><th scope="row">Domain</th><td>—</td></tr>
+        <tr><th scope="row">Height</th><td>-</td></tr>
       </tbody>
     </table>
     <table class="character-stats">
@@ -1246,17 +1290,19 @@
 
   <!--THIS IS THE KAZ MODAL-->
   <dialog class="modal gallery-modal" id="kaz-modal" aria-labelledby="ship-title">
-    <img class="modal-art" src="https://raw.githubusercontent.com/SBERB1812/critholo/refs/heads/main/CalliFull.jpg" alt="Kaz Oogod" referrerpolicy="no-referrer" loading="eager">
+    <img class="modal-art" src="https://raw.githubusercontent.com/SBERB1812/critholo/refs/heads/main/image-16.png" alt="Kaz Oogod" referrerpolicy="no-referrer" loading="eager">
     <h2 id="ship-title">Kaz Oogod</h2>
       <p>[INSERT CHARACTER DESCRIPTION HERE]</p>
     <table class="character-info">
       <caption>Character Information</caption>
       <tbody>
+        <tr><th scope="row">Pronouns</th><td>He/Him</td></tr>
         <tr><th scope="row">Age</th><td>—</td></tr>
-        <tr><th scope="row">Class</th><td>—</td></tr>
+        <tr><th scope="row">Class</th><td>Infernis Bard</td></tr>
         <tr><th scope="row">Subclass</th><td>—</td></tr>
         <tr><th scope="row">Heritage</th><td>—</td></tr>
         <tr><th scope="row">Domain</th><td>—</td></tr>
+        <tr><th scope="row">Height</th><td>-</td></tr>
       </tbody>
     </table>
     <table class="character-stats">
@@ -1289,17 +1335,19 @@
 
   <!--THIS IS THE MARCH MODAL-->
   <dialog class="modal gallery-modal" id="march-modal" aria-labelledby="storm-title">
-    <img class="modal-art" src="https://raw.githubusercontent.com/SBERB1812/critholo/refs/heads/main/ShioriFull.jpg" alt="Marchen March Rosemyne" referrerpolicy="no-referrer" loading="eager">
+    <img class="modal-art" src="https://raw.githubusercontent.com/SBERB1812/critholo/refs/heads/main/image-10.png" alt="Marchen March Rosemyne" referrerpolicy="no-referrer" loading="eager">
     <h2 id="storm-title">Marchen "March" Rosemyne</h2>
       <p>[INSERT CHARACTER DESCRIPTION HERE]</p>
     <table class="character-info">
       <caption>Character Information</caption>
       <tbody>
+        <tr><th scope="row">Pronouns</th><td>She/Her</td></tr>
         <tr><th scope="row">Age</th><td>—</td></tr>
-        <tr><th scope="row">Class</th><td>—</td></tr>
+        <tr><th scope="row">Class</th><td>Fungal Druid</td></tr>
         <tr><th scope="row">Subclass</th><td>—</td></tr>
         <tr><th scope="row">Heritage</th><td>—</td></tr>
         <tr><th scope="row">Domain</th><td>—</td></tr>
+        <tr><th scope="row">Height</th><td>-</td></tr>
       </tbody>
     </table>
     <table class="character-stats">
@@ -1332,17 +1380,19 @@
 
   <!--THIS IS THE GIRYN MODAL-->
   <dialog class="modal gallery-modal" id="giryn-modal" aria-labelledby="relic-title">
-    <img class="modal-art" src="https://raw.githubusercontent.com/SBERB1812/critholo/refs/heads/main/GigiFull.jpg" alt="Giryn" referrerpolicy="no-referrer" loading="eager">
+    <img class="modal-art" src="https://raw.githubusercontent.com/SBERB1812/critholo/refs/heads/main/image-18.png" alt="Giryn" referrerpolicy="no-referrer" loading="eager">
     <h2 id="relic-title">Giryn</h2>
       <p>[INSERT CHARACTER DESCRIPTION HERE]</p>
     <table class="character-info">
       <caption>Character Information</caption>
       <tbody>
+        <tr><th scope="row">Pronouns</th><td>She/Her</td></tr>
         <tr><th scope="row">Age</th><td>—</td></tr>
-        <tr><th scope="row">Class</th><td>—</td></tr>
+        <tr><th scope="row">Class</th><td>Faerie Seraph</td></tr>
         <tr><th scope="row">Subclass</th><td>—</td></tr>
         <tr><th scope="row">Heritage</th><td>—</td></tr>
         <tr><th scope="row">Domain</th><td>—</td></tr>
+        <tr><th scope="row">Height</th><td>18 in (45.72 cm)</td></tr>
       </tbody>
     </table>
     <table class="character-stats">
@@ -1374,6 +1424,12 @@
   </dialog>
 
 
+  <dialog class="modal welcome-modal" id="welcome-modal" aria-label="Welcome to Shattered Legends">
+    <button class="welcome-image-button" id="welcome-image-button" type="button" aria-label="Close welcome image">
+      <img src="https://raw.githubusercontent.com/SBERB1812/critholo/refs/heads/main/SLStart.jpg" alt="Shattered Legends">
+    </button>
+  </dialog>
+
   <script>
     const closeTimers = new WeakMap();
     const closeModal = (dialog) => {
@@ -1400,6 +1456,13 @@
         dialog.classList.remove("is-closing");
       });
     });
+
+    const welcomeModal = document.querySelector("#welcome-modal");
+    document.querySelector("#welcome-image-button").addEventListener("click", () => closeModal(welcomeModal));
+    welcomeModal.addEventListener("click", (event) => {
+      if (event.target === welcomeModal) closeModal(welcomeModal);
+    });
+    welcomeModal.showModal();
 
     const worldModal = document.querySelector("#world-modal");
 
@@ -1525,7 +1588,7 @@
       },
       animefrontier: {
         name: "Anime Frontier",
-        details: "December 4–6, 2026 in Fort Worth, Texas\n\nThis December, join hololive as they celebrate their 5th year of activities! They’ll be rolling onto the Anime Frontier Exhibit Hall in Booth #1204 so you can immerse yourself in all things hololive all weekend long! TTRPG fan? Join us at the Main Stage learn more about Shattered Legends! This special hololive experience is included with your badge! No separate ticket needed.\n\nTickets:\n\u2022 3-Day Ticket Mailed: $85.60\n\u2022 Friday Ticket Mailed: $45.48\n\u2022 Saturday Ticket Mailed: $52.43\n\u2022 Sunday Ticket Mailed: $45.48\n\u2022 Kids 3-Day Ticket Mailed; $20.33\n\u2022 Kids Sunday Ticket Mailed (Adult Ticket Required): FREE",
+        details: "December 4–6, 2026 in Fort Worth, Texas\n\nThis December, join hololive as they celebrate their 5th year of activities! They’ll be rolling onto the Anime Frontier Exhibit Hall in Booth #1204 so you can immerse yourself in all things hololive all weekend long! TTRPG fan? Join us at the Main Stage learn more about Shattered Legends! This special hololive experience is included with your badge! No separate ticket needed. \n\nCast included are: \n\u2022 Matthew Mercer\n\u2022 Marisha Ray\n\u2022 Calliope Mori\n\u2022 Shiori Novella\n\u2022 Nerissa Ravencroft\n\nTickets:\n\u2022 3-Day Ticket Mailed: $85.60\n\u2022 Friday Ticket Mailed: $45.48\n\u2022 Saturday Ticket Mailed: $52.43\n\u2022 Sunday Ticket Mailed: $45.48\n\u2022 Kids 3-Day Ticket Mailed; $20.33\n\u2022 Kids Sunday Ticket Mailed (Adult Ticket Required): FREE",
         url: "https://animefrontier.com/hololive/",
         linkText: "Read more on the Anime Frontier website"
       },
@@ -1619,15 +1682,41 @@
         articleUrl: "https://x.com/hololive_En/status/2113827827007287793",
         articleLabel: "Read more on the Hololive's Twitter"
       },
+      pcgamer: {
+        title: "11/04/2026 - PC Gamer Interview",
+        description: "Neither Critical Role diehards nor Hololive vtuber fans could've predicted that they'd work together to film a new tabletop roleplaying series. Shattered Legends is the product of a collaboration that might sound bizarre at first but makes perfect sense when you consider vtubers are basically just voice actors, like just about everyone else in Critical Role's orbit.",
+        articleUrl: "https://www.pcgamer.com/games/board-games/critical-roles-upcoming-series-with-hololive-gave-matt-mercer-a-deeper-understanding-and-appreciation-for-vtubers/",
+        articleLabel: "Read more on the PC Gamer website"
+      },
+      trailer: {
+        title: "11/05/2026 - Shattered Legends Trailer",
+        description: "Watch the Shattered Legends trailer.",
+        videoId: "Hm4u9QWHXCs",
+        articleUrl: "https://www.youtube.com/watch?v=Hm4u9QWHXCs",
+        articleLabel: "Watch on YouTube"
+      },
     };
     const newsTopicSelect = document.querySelector("#news-topic");
     const newsTopicTitle = document.querySelector("#news-topic-title");
     const newsTopicDescription = document.querySelector("#news-topic-description");
+    const newsTopicVideo = document.querySelector("#news-topic-video");
     const newsArticleLink = document.querySelector("#news-article-link");
     const updateNewsTopic = () => {
       const topic = newsTopics[newsTopicSelect.value];
       newsTopicTitle.textContent = topic.title;
       newsTopicDescription.textContent = topic.description;
+      newsTopicVideo.replaceChildren();
+      newsTopicVideo.hidden = !topic.videoId;
+      if (topic.videoId) {
+        const video = document.createElement("iframe");
+        video.src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(topic.videoId)}`;
+        video.title = `${topic.title} video`;
+        video.loading = "lazy";
+        video.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+        video.referrerPolicy = "strict-origin-when-cross-origin";
+        video.allowFullscreen = true;
+        newsTopicVideo.append(video);
+      }
       newsArticleLink.hidden = !topic.articleUrl;
       newsArticleLink.href = topic.articleUrl || "#";
       newsArticleLink.textContent = topic.articleLabel;
