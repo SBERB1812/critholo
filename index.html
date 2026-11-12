@@ -120,7 +120,66 @@
     }
 
     .hero {
-      max-width: 760px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+      align-items: center;
+      gap: clamp(24px, 5vw, 64px);
+      max-width: 1120px;
+    }
+
+    .hero-copy {
+      min-width: 0;
+    }
+
+    .hero-copy h1 {
+      font-size: clamp(2rem, 5vw, 5rem);
+      white-space: normal;
+    }
+
+    .hero-video {
+      position: relative;
+      display: block;
+      overflow: hidden;
+      border: 1px solid rgb(226 165 108 / 45%);
+      border-radius: 6px;
+      background: #08090d;
+      box-shadow: 0 18px 48px rgb(0 0 0 / 35%);
+    }
+
+    .hero-video img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      transition: transform 180ms ease;
+    }
+
+    .hero-video:hover img,
+    .hero-video:focus-visible img {
+      transform: scale(1.03);
+    }
+
+    .hero-video-play {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      display: grid;
+      width: 64px;
+      aspect-ratio: 1;
+      place-items: center;
+      border: 1px solid rgb(255 255 255 / 70%);
+      border-radius: 50%;
+      background: rgb(17 19 27 / 78%);
+      color: #fff;
+      font-size: 1.5rem;
+      transform: translate(-50%, -50%);
+      transition: background 160ms ease;
+    }
+
+    .hero-video:hover .hero-video-play,
+    .hero-video:focus-visible .hero-video-play {
+      background: #e2a56c;
+      color: #17141a;
     }
 
     .side-menu {
@@ -424,7 +483,7 @@
     }
 
     #character-stats-modal {
-      width: min(900px, calc(100vw - 32px));
+      width: min(1200px, calc(100vw - 32px));
     }
 
     #locations-modal {
@@ -817,6 +876,10 @@
         margin-left: 0;
       }
 
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
       .side-menu {
         position: static;
         width: min(1120px, calc(100% - 48px));
@@ -927,13 +990,20 @@
 
     <main>
       <section class="hero" id="story" aria-labelledby="title">
-        <p class="eyebrow">A realm on the edge of myth</p>
-        <h1 id="title">Shattered <span>Legends</span></h1>
-        <p class="intro" id="world">
-          At the center of Ubradar lies a gargantuan sinkhole, known as the Undermaw…an unknowable darkness sealed below.</p><br />
-
-          <p class="intro" id="world">Something strange is happening, and our heroes head on a mission to check out an odd construction…what will they uncover?</p>
-        </p>
+        <div class="hero-copy">
+          <p class="eyebrow">A realm on the edge of myth</p>
+          <h1 id="title">Shattered <span>Legends</span></h1>
+          <p class="intro" id="world">
+            At the center of Ubradar lies a gargantuan sinkhole, known as the Undermaw…an unknowable darkness sealed below.
+          </p>
+          <p class="intro">
+            Something strange is happening, and our heroes head on a mission to check out an odd construction…what will they uncover?
+          </p>
+        </div>
+        <a class="hero-video" href="https://www.youtube.com/watch?v=TZro-823L38" target="_blank" rel="noopener noreferrer" aria-label="Watch Shattered Legends on YouTube">
+          <img src="https://img.youtube.com/vi/TZro-823L38/hqdefault.jpg" alt="Shattered Legends video thumbnail">
+          <span class="hero-video-play" aria-hidden="true">▶</span>
+        </a>
       </section>
     </main>
 
@@ -973,11 +1043,11 @@
         <table class="adventure-table">
           <thead>
             <tr>
-              <th scope="col">Chapter</th>
+              <th scope="col">Episode</th>
               <th scope="col">Hope Rolls</th>
               <th scope="col">Fear Rolls</th>
-              <th scope="col">Damage Dealt</th>
-              <th scope="col">Damage Taken</th>
+              <th scope="col">Damage <br />Dealt</th>
+              <th scope="col">Damage <br />Taken</th>
             </tr>
           </thead>
           <tbody>
@@ -1050,9 +1120,39 @@
   <dialog class="modal" id="team-modal" aria-labelledby="team-modal-title">
     <h2 id="team-modal-title">Credits</h2>
     <p>
-      Website design: <a href="https://x.com/SBERBholo" target="_blank">SB</a><br />
-      Icons: <a href="https://x.com/Quarases_" target="_blank">Quarases</a>
-      Website Review and Information: <a href="https://x.com/dubbhae" target="_blank">Dubbie</a>
+      <b>Website design:</b> <a href="https://x.com/SBERBholo" target="_blank">SB</a><br />
+      <b>Icons:</b> <a href="https://x.com/Quarases_" target="_blank">Quarases</a><br />
+      <b>Website Review and Information:</b> <a href="https://x.com/dubbhae" target="_blank">Dubbie</a>
+    </p><br /><br />
+
+    <p><b>Shattered Legends Credits:</b><br />
+      Key Visual Art and Character Art by <a href="https://x.com/itataboon" target="_blank">Itataboon</a><br />
+      Key Art and Character Art by <a href="https://www.instagram.com/richardlayart" target="_blank">Richard Lay</a><br />
+      Character Design by <a href="https://x.com/yomosaka" target="_blank">Yomosaka</a><br /><br />
+
+      <b>Opening Music Video:</b><br />
+      Theme Song by <a href="https://x.com/nerissa_en" target="_blank">Nerissa Ravencroft</a><br />
+      Opening Video by <a href="https://x.com/EdmundKinoko" target="_blank">Edmund Kinoko</a><br />
+      Composer & Arranger (Instrumental) by <a href="https://x.com/keiki_music" target="_blank">KEIKI</a><br />
+      Mixing by <a href="https://x.com/keiki_music" target="_blank">KEIKI</a><br />
+      Composer (Vocal Arrangement) by <a href="https://x.com/TOFIEmusic" target="_blank">TOFIE</a><br />
+      Lyrics by <a href="https://x.com/keiki_music" target="_blank">TOFIE</a><br /><br />
+
+      <b>hololive production team:</b><br />
+      Executive Producer | Robin Yeo<br />
+      Production Manager | Mai Uchino<br />
+      Lead Production Coordinator | Christopher Main<br />
+      Production Coordinator | Crystal Yip<br /><br />
+
+      <b>Critical Role Team:</b><br />
+      Creative Director | Marisha Ray<br />
+      Associate Creative Director | Maxwell James<br />
+      Senior Producer | Steve Failows<br />
+      Director | Steve Failows<br />
+      Show Graphics: Ben Lyons<br />
+      Lore Keeper: Dani Carr<br />
+      Editor: Emily “Stevie” Stevenson<br />
+      QC: Paula Flores & Catherine Zimmerman<br /><br />
     </p>
     <button class="modal-close" type="button" data-close-team>Close</button>
   </dialog>
@@ -1173,7 +1273,7 @@
     <h2 id="character-stats-title">Character Stats</h2>
     <label class="news-label" for="episode-stats-select">Choose an episode</label>
     <select class="news-select" id="episode-stats-select">
-      <option value="1">Episode 1</option>
+      <option value="1">Episode 1: Winds of Change</option>
       <option value="2">Episode 2</option>
       <option value="3">Episode 3</option>
       <option value="4">Episode 4</option>
@@ -1190,8 +1290,8 @@
             <th scope="col">Hope</th>
             <th scope="col">Fear</th>
             <th scope="col">Spells</th>
-            <th scope="col">Damage Dealt</th>
-            <th scope="col">Damage Taken</th>
+            <th scope="col">Damage <br />Dealt</th>
+            <th scope="col">Damage <br />Taken</th>
             <th scope="col">Heals</th>
             <th scope="col">Kills</th>
             <th scope="col">KOs</th>
