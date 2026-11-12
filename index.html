@@ -115,20 +115,17 @@
       display: grid;
       width: min(1120px, calc(100% - 48px));
       align-items: center;
-      margin: -16px auto 0;
-      padding: 0 0 112px;
+      margin: 0 auto;
+      padding: 32px 0 112px;
     }
 
     .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
-      align-items: center;
-      gap: clamp(24px, 5vw, 64px);
       max-width: 1120px;
     }
 
     .hero-copy {
       min-width: 0;
+      margin-bottom: 28px;
     }
 
     .hero-copy h1 {
@@ -136,11 +133,21 @@
       white-space: normal;
     }
 
+    .hero-content {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+      align-items: center;
+      gap: clamp(24px, 5vw, 64px);
+      padding-left: clamp(0px, 8vw, 120px);
+    }
+
+    .hero-content .intro {
+      margin: 0;
+    }
+
     .hero-video {
       position: relative;
       display: block;
-      align-self: start;
-      margin-top: clamp(160px, 15vw, 210px);
       overflow: hidden;
       border: 1px solid rgb(226 165 108 / 45%);
       border-radius: 6px;
@@ -879,11 +886,16 @@
       }
 
       .hero {
-        grid-template-columns: 1fr;
+        width: 100%;
       }
 
-      .hero-video {
-        margin-top: 0;
+      .hero-content {
+        grid-template-columns: 1fr;
+        padding-left: 0;
+      }
+
+      .hero-copy {
+        margin-bottom: 24px;
       }
 
       .side-menu {
@@ -916,7 +928,7 @@
       }
 
       main {
-        padding: 0 0 88px;
+        padding: 32px 0 88px;
       }
 
       .gallery {
@@ -999,14 +1011,16 @@
         <div class="hero-copy">
           <p class="eyebrow">A realm on the edge of myth</p>
           <h1 id="title">Shattered <span>Legends</span></h1>
+        </div>
+        <div class="hero-content">
           <p class="intro" id="world">
             At the center of Ubradar lies a gargantuan sinkhole, known as the Undermaw…an unknowable darkness sealed below.<br /> Something strange is happening, and our heroes head on a mission to check out an odd construction…what will they uncover?
           </p>
+          <a class="hero-video" href="https://www.youtube.com/watch?v=TZro-823L38" target="_blank" rel="noopener noreferrer" aria-label="Watch Shattered Legends on YouTube">
+            <img src="https://img.youtube.com/vi/TZro-823L38/hqdefault.jpg" alt="Shattered Legends video thumbnail">
+            <span class="hero-video-play" aria-hidden="true">▶</span>
+          </a>
         </div>
-        <a class="hero-video" href="https://www.youtube.com/watch?v=TZro-823L38" target="_blank" rel="noopener noreferrer" aria-label="Watch Shattered Legends on YouTube">
-          <img src="https://img.youtube.com/vi/TZro-823L38/hqdefault.jpg" alt="Shattered Legends video thumbnail">
-          <span class="hero-video-play" aria-hidden="true">▶</span>
-        </a>
       </section>
     </main>
 
