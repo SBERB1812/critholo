@@ -116,7 +116,7 @@
       width: min(1120px, calc(100% - 48px));
       align-items: center;
       margin: 0 auto;
-      padding: 32px 0 112px;
+      padding: 32px 0 32px;
     }
 
     .hero {
@@ -276,6 +276,24 @@
       width: min(1120px, calc(100% - 48px));
       margin: 0 auto;
       padding: 0 0 76px;
+    }
+
+    .premiere-countdown {
+      margin: 0 0 20px;
+      color: #e2a56c;
+      font-weight: 700;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    .premiere-countdown-label {
+      display: block;
+      color: #c5c2c4;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
     }
 
     .gallery-heading {
@@ -928,7 +946,7 @@
       }
 
       main {
-        padding: 32px 0 88px;
+        padding: 32px 0 24px;
       }
 
       .gallery {
@@ -1026,6 +1044,10 @@
 
     <!--THIS IS THE ICON SELECTIONS FOR CAST-->
     <section class="gallery" aria-labelledby="gallery-title">
+      <p class="premiere-countdown" role="timer" aria-live="off">
+        <span class="premiere-countdown-label">Time until the YouTube premiere · <span id="premiere-local-time">Loading local time…</span></span>
+        <time id="premiere-countdown" datetime="2026-11-13T18:00:00-08:00">Loading countdown…</time>
+      </p>
       <h2 class="gallery-heading" id="gallery-title">Learn more about the characters</h2>
       <div class="gallery-grid">
         <button class="gallery-card" type="button" data-open-gallery="florence-modal">
@@ -1866,6 +1888,39 @@
     const episodeStatsSelect = document.querySelector("#episode-stats-select");
     const episodeStatsBody = document.querySelector("#episode-stats-body");
     const episodeStatsCaption = document.querySelector("#episode-stats-caption");
+    const premiereCountdown = document.querySelector("#premiere-countdown");
+    const premiereTime = new Date(premiereCountdown.dateTime).getTime();
+    document.querySelector("#premiere-local-time").textContent = new Intl.DateTimeFormat(undefined, {
+      weekday: "short",
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+      hour: "numeric",
+      minute: "2-digit",
+      timeZoneName: "short"
+    }).format(premiereTime);
+    const updatePremiereCountdown = () => {
+      const remaining = premiereTime - Date.now();
+      if (remaining <= 0) {
+        premiereCountdown.textContent = "The premiere has started";
+        window.clearInterval(premiereCountdownInterval);
+        return;
+      }
+
+      const seconds = Math.floor(remaining / 1000);
+      const units = [
+        [Math.floor(seconds / 86400), "day"],
+        [Math.floor((seconds % 86400) / 3600), "hour"],
+        [Math.floor((seconds % 3600) / 60), "minute"],
+        [seconds % 60, "second"]
+      ];
+      premiereCountdown.textContent = units
+        .map(([value, unit]) => `${value} ${unit}${value === 1 ? "" : "s"}`)
+        .join(", ");
+    };
+    const premiereCountdownInterval = window.setInterval(updatePremiereCountdown, 1000);
+    updatePremiereCountdown();
+
     const episodeCharacters = ["Florence", "Sil", "Kaz", "March", "Giryn"];
     const episodeStatFields = [
       "Deaths",
