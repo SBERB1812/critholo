@@ -139,6 +139,8 @@
     .hero-video {
       position: relative;
       display: block;
+      align-self: start;
+      margin-top: clamp(160px, 15vw, 210px);
       overflow: hidden;
       border: 1px solid rgb(226 165 108 / 45%);
       border-radius: 6px;
@@ -880,6 +882,10 @@
         grid-template-columns: 1fr;
       }
 
+      .hero-video {
+        margin-top: 0;
+      }
+
       .side-menu {
         position: static;
         width: min(1120px, calc(100% - 48px));
@@ -994,10 +1000,7 @@
           <p class="eyebrow">A realm on the edge of myth</p>
           <h1 id="title">Shattered <span>Legends</span></h1>
           <p class="intro" id="world">
-            At the center of Ubradar lies a gargantuan sinkhole, known as the Undermaw…an unknowable darkness sealed below.
-          </p>
-          <p class="intro">
-            Something strange is happening, and our heroes head on a mission to check out an odd construction…what will they uncover?
+            At the center of Ubradar lies a gargantuan sinkhole, known as the Undermaw…an unknowable darkness sealed below.<br /> Something strange is happening, and our heroes head on a mission to check out an odd construction…what will they uncover?
           </p>
         </div>
         <a class="hero-video" href="https://www.youtube.com/watch?v=TZro-823L38" target="_blank" rel="noopener noreferrer" aria-label="Watch Shattered Legends on YouTube">
