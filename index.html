@@ -412,17 +412,23 @@
     }
 
     .stats-button {
-      display: block;
-      min-height: 38px;
-      margin: 16px auto 0;
-      padding: 0 16px;
+      min-height: 46px;
+      padding: 0 22px;
       border: 1px solid rgb(226 165 108 / 65%);
       border-radius: 3px;
       background: transparent;
       color: #e4dfd9;
       cursor: pointer;
       font: inherit;
-      font-size: 0.82rem;
+      font-size: 0.95rem;
+    }
+
+    .stats-button-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin: 16px auto 0;
     }
 
     .stats-button:hover,
@@ -495,6 +501,10 @@
       width: min(900px, calc(100vw - 32px));
     }
 
+    #monster-stats-modal .character-stats {
+      margin-bottom: 24px;
+    }
+
     #external-websites-modal {
       width: min(900px, calc(100vw - 32px));
     }
@@ -565,6 +575,28 @@
       color: #c5c2c4;
       line-height: 1.75;
       white-space: pre-line;
+    }
+
+    .monster-feature {
+      padding: 12px 0;
+      border-top: 1px solid rgb(255 255 255 / 10%);
+    }
+
+    .monster-feature:last-child {
+      padding-bottom: 0;
+    }
+
+    #monster-features {
+      margin-top: 24px;
+    }
+
+    #monster-features-title {
+      margin-bottom: 4px;
+    }
+
+    .monster-feature h4 {
+      margin: 0 0 6px;
+      color: #e4dfd9;
     }
 
     .modal-art {
@@ -758,6 +790,10 @@
       min-width: 900px;
       border-collapse: collapse;
       text-align: left;
+    }
+
+    .misc-stats-table {
+      min-width: 420px;
     }
 
     .episode-stats-table caption {
@@ -985,18 +1021,22 @@
   <div class="page">
     <header>
       <a class="brand" href="#" aria-label="Shattered Legends home">Shattered Legends</a>
-      <button class="team-button" type="button" data-open-team>Credits</button>
+      <div style="display: flex; align-items: center; gap: 16px;">
+        <button class="team-button" type="button" data-open-hololive>What is Hololive?</button>
+        <button class="team-button" type="button" data-open-world>What is Critical Role?</button>
+        <button class="team-button" type="button" data-open-daggerheart>What is Dagger Heart?</button>
+        <button class="team-button" type="button" data-open-team>Credits</button>
+      </div>
     </header>
 
 
 <!--THIS IS THE LEFT SIDE NAVIGATION-->
-    <nav class="side-menu" aria-label="Explore">
-      <button class="button button-secondary" type="button" data-open-CR>What is Critical Role?</button>
-      <button class="button button-secondary" type="button" data-open-daggerheart>What is Dagger Heart?</button>
-      <button class="button button-secondary" type="button" data-open-hololive>What is Hololive?</button>
-      <button class="button button-secondary" type="button" data-open-news>News</button>
-      <button class="button button-secondary" type="button" data-open-npcs>NPCs</button>
+<nav class="side-menu" aria-label="Explore">
+  <button class="button button-secondary" type="button" data-open-news>News</button>
+      <button class="button button-secondary" type="button" data-open-lore>Lore (WIP)</button>
       <button class="button button-secondary" type="button" data-open-locations>Locations</button>
+      <button class="button button-secondary" type="button" data-open-monster-stats>Monster Stats</button>
+      <button class="button button-secondary" type="button" data-open-npcs>NPCs</button>
       <button class="button button-secondary" type="button" data-open-convention-tour>Convention Tour</button>
       <button class="button button-secondary" type="button" data-open-external-websites>Official Websites</button>
     </nav>
@@ -1107,7 +1147,10 @@
           </tbody>
         </table>
       </div>
-      <button class="stats-button" type="button" data-open-character-stats>Character stats</button>
+      <div class="stats-button-group">
+        <button class="stats-button" type="button" data-open-character-stats>Individual Character Stats</button>
+        <button class="stats-button" type="button" data-open-misc-stats>Miscellaneous Stats</button>
+      </div>
     </section>
 
     <footer>
@@ -1208,6 +1251,43 @@
     <button class="modal-close" type="button" data-close-npcs>Close</button>
   </dialog>
 
+  <dialog class="modal" id="lore-modal" aria-labelledby="lore-modal-title">
+    <h2 id="lore-modal-title">Lore (WIP)</h2>
+    <div class="location-layout">
+      <nav class="location-nav" aria-label="Lore topics">
+        <button class="location-button" type="button" data-lore="coming-soon" aria-pressed="true">Coming Soon</button>
+      </nav>
+      <section class="location-description" aria-live="polite" aria-atomic="true">
+        <h3 id="lore-topic-title">Coming Soon</h3>
+        <p id="lore-topic-text">Coming Soon</p>
+      </section>
+    </div>
+    <button class="modal-close" type="button" data-close-lore>Close</button>
+  </dialog>
+
+  <dialog class="modal" id="monster-stats-modal" aria-labelledby="monster-stats-title">
+    <h2 id="monster-stats-title">Monster Stats</h2>
+    <div class="location-layout">
+      <nav class="location-nav" aria-label="Monsters">
+        <button class="location-button" type="button" data-monster="mosquito" aria-pressed="true">Giant Mosquitos</button>
+      </nav>
+      <section class="location-description" aria-live="polite" aria-atomic="true">
+        <h3 id="monster-name">Giant Mosquitos</h3>
+        <p id="monster-type">Adversary · Horde (5 HP)</p>
+        <p id="monster-description">Dozens of fist-sized moquistoes, flying together for protection</p>
+        <table class="character-stats">
+          <caption>Stats</caption>
+          <tbody id="monster-stats-body"></tbody>
+        </table>
+        <section aria-labelledby="monster-features-title">
+          <h3 id="monster-features-title">Features</h3>
+          <div id="monster-features"></div>
+        </section>
+      </section>
+    </div>
+    <button class="modal-close" type="button" data-close-monster-stats>Close</button>
+  </dialog>
+
     <!--THIS IS THE LOCATIONS MODAL-->
   <dialog class="modal" id="locations-modal" aria-labelledby="locations-modal-title">
     <h2 id="locations-modal-title">Locations</h2>
@@ -1303,7 +1383,6 @@
         <thead>
           <tr>
             <th scope="col">Character</th>
-            <th scope="col">Deaths</th>
             <th scope="col">Hope</th>
             <th scope="col">Fear</th>
             <th scope="col">Hope Spent</th>
@@ -1312,13 +1391,45 @@
             <th scope="col">Heals</th>
             <th scope="col">Kills</th>
             <th scope="col">Stress</th>
-            <th scope="col">Critical Success</th>
+            <th scope="col">Stress<br />Relieved</th>
+            <th scope="col">Armor<br />Spent</th>
+            <th scope="col">HDYWTDT</th>
+            <th scope="col">Critical<br />Success</th>
+            <th scope="col">Kazoo Plays</th>
           </tr>
         </thead>
         <tbody id="episode-stats-body"></tbody>
       </table>
     </div>
     <button class="modal-close" type="button" data-close-character-stats>Close</button>
+  </dialog>
+
+  <dialog class="modal" id="misc-stats-modal" aria-labelledby="misc-stats-title">
+    <h2 id="misc-stats-title">Miscellaneous Stats</h2>
+    <div class="episode-stats-wrap">
+      <table class="episode-stats-table misc-stats-table">
+        <caption>Short Rest Choices</caption>
+        <thead>
+          <tr>
+            <th scope="col">Episode</th>
+            <th scope="col">Florence</th>
+            <th scope="col">Sil</th>
+            <th scope="col">Kaz</th>
+            <th scope="col">March</th>
+            <th scope="col">Giryn</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">1</th><td>Prepare</td><td>Tend to Wounds<br />Prepare</td><td></td><td></td><td></td></tr>
+          <tr><th scope="row">2</th><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><th scope="row">3</th><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><th scope="row">4</th><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><th scope="row">5</th><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><th scope="row">6</th><td></td><td></td><td></td><td></td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <button class="modal-close" type="button" data-close-misc-stats>Close</button>
   </dialog>
 
   <!--THIS IS THE FLORENCE MODAL-->
@@ -1570,8 +1681,17 @@
 
   <script>
     const closeTimers = new WeakMap();
+    const openModal = (dialog) => {
+      if (!dialog) return;
+      if (typeof dialog.showModal === "function") {
+        dialog.showModal();
+      } else {
+        dialog.setAttribute("open", "open");
+      }
+    };
+
     const closeModal = (dialog) => {
-      if (!dialog.open || dialog.classList.contains("is-closing")) return;
+      if (!dialog || !dialog.open || dialog.classList.contains("is-closing")) return;
 
       dialog.classList.add("is-closing");
       closeTimers.set(dialog, window.setTimeout(() => {
@@ -1596,70 +1716,151 @@
     });
 
     const worldModal = document.querySelector("#world-modal");
+    const worldTrigger = document.querySelector("[data-open-world]");
 
-    document.querySelectorAll("[data-open-CR]").forEach((trigger) => {
-      trigger.addEventListener("click", () => worldModal.showModal());
-    });
+    if (worldTrigger && worldModal) {
+      worldTrigger.addEventListener("click", () => {
+        openModal(worldModal);
+      });
+    }
 
-    document.querySelector("[data-close-world]").addEventListener("click", () => {
-      closeModal(worldModal);
-    });
+    const worldCloseButton = document.querySelector("[data-close-world]");
+    if (worldCloseButton && worldModal) {
+      worldCloseButton.addEventListener("click", () => {
+        closeModal(worldModal);
+      });
+    }
 
     const teamModal = document.querySelector("#team-modal");
-    document.querySelector("[data-open-team]").addEventListener("click", () => {
-      teamModal.showModal();
-    });
-    document.querySelector("[data-close-team]").addEventListener("click", () => {
-      closeModal(teamModal);
-    });
+    const teamTrigger = document.querySelector("[data-open-team]");
+    if (teamTrigger && teamModal) {
+      teamTrigger.addEventListener("click", () => {
+        openModal(teamModal);
+      });
+    }
+    const teamCloseButton = document.querySelector("[data-close-team]");
+    if (teamCloseButton && teamModal) {
+      teamCloseButton.addEventListener("click", () => {
+        closeModal(teamModal);
+      });
+    }
 
     const daggerheartModal = document.querySelector("#daggerheart-modal");
-    document.querySelector("[data-open-daggerheart]").addEventListener("click", () => {
-      daggerheartModal.showModal();
-    });
-    document.querySelector("[data-close-daggerheart]").addEventListener("click", () => {
-      closeModal(daggerheartModal);
-    });
+    const daggerheartTrigger = document.querySelector("[data-open-daggerheart]");
+    if (daggerheartTrigger && daggerheartModal) {
+      daggerheartTrigger.addEventListener("click", () => {
+        openModal(daggerheartModal);
+      });
+    }
+    const daggerheartCloseButton = document.querySelector("[data-close-daggerheart]");
+    if (daggerheartCloseButton && daggerheartModal) {
+      daggerheartCloseButton.addEventListener("click", () => {
+        closeModal(daggerheartModal);
+      });
+    }
 
     const hololiveModal = document.querySelector("#hololive-modal");
-    document.querySelector("[data-open-hololive]").addEventListener("click", () => {
-      hololiveModal.showModal();
-    });
-    document.querySelector("[data-close-hololive]").addEventListener("click", () => {
-      closeModal(hololiveModal);
-    });
+    const hololiveTrigger = document.querySelector("[data-open-hololive]");
+    if (hololiveTrigger && hololiveModal) {
+      hololiveTrigger.addEventListener("click", () => {
+        openModal(hololiveModal);
+      });
+    }
+    const hololiveCloseButton = document.querySelector("[data-close-hololive]");
+    if (hololiveCloseButton && hololiveModal) {
+      hololiveCloseButton.addEventListener("click", () => {
+        closeModal(hololiveModal);
+      });
+    }
 
     const npcsModal = document.querySelector("#npcs-modal");
-    document.querySelector("[data-open-npcs]").addEventListener("click", () => {
-      npcsModal.showModal();
-    });
-    document.querySelector("[data-close-npcs]").addEventListener("click", () => {
-      closeModal(npcsModal);
+    const npcsTrigger = document.querySelector("[data-open-npcs]");
+    if (npcsTrigger && npcsModal) {
+      npcsTrigger.addEventListener("click", () => {
+        openModal(npcsModal);
+      });
+    }
+    const npcsCloseButton = document.querySelector("[data-close-npcs]");
+    if (npcsCloseButton && npcsModal) {
+      npcsCloseButton.addEventListener("click", () => {
+        closeModal(npcsModal);
+      });
+    }
+
+    const loreModal = document.querySelector("#lore-modal");
+    const loreTrigger = document.querySelector("[data-open-lore]");
+    if (loreTrigger && loreModal) {
+      loreTrigger.addEventListener("click", () => {
+        openModal(loreModal);
+      });
+    }
+    const loreCloseButton = document.querySelector("[data-close-lore]");
+    if (loreCloseButton && loreModal) {
+      loreCloseButton.addEventListener("click", () => {
+        closeModal(loreModal);
+      });
+    }
+    const loreTopics = {
+      "coming-soon": {
+        title: "Coming Soon",
+        text: "Coming Soon"
+      }
+    };
+    const loreButtons = document.querySelectorAll("[data-lore]");
+    const loreTopicTitle = document.querySelector("#lore-topic-title");
+    const loreTopicText = document.querySelector("#lore-topic-text");
+    loreButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const topic = loreTopics[button.dataset.lore];
+        loreTopicTitle.textContent = topic.title;
+        loreTopicText.textContent = topic.text;
+        loreButtons.forEach((item) => {
+          item.setAttribute("aria-pressed", String(item === button));
+        });
+      });
     });
 
     const locationsModal = document.querySelector("#locations-modal");
-    document.querySelector("[data-open-locations]").addEventListener("click", () => {
-      locationsModal.showModal();
-    });
-    document.querySelector("[data-close-locations]").addEventListener("click", () => {
-      closeModal(locationsModal);
-    });
+    const locationsTrigger = document.querySelector("[data-open-locations]");
+    if (locationsTrigger && locationsModal) {
+      locationsTrigger.addEventListener("click", () => {
+        openModal(locationsModal);
+      });
+    }
+    const locationsCloseButton = document.querySelector("[data-close-locations]");
+    if (locationsCloseButton && locationsModal) {
+      locationsCloseButton.addEventListener("click", () => {
+        closeModal(locationsModal);
+      });
+    }
 
     const conventionTourModal = document.querySelector("#convention-tour-modal");
-    document.querySelector("[data-open-convention-tour]").addEventListener("click", () => {
-      conventionTourModal.showModal();
-    });
-    document.querySelector("[data-close-convention-tour]").addEventListener("click", () => {
-      closeModal(conventionTourModal);
-    });
+    const conventionTourTrigger = document.querySelector("[data-open-convention-tour]");
+    if (conventionTourTrigger && conventionTourModal) {
+      conventionTourTrigger.addEventListener("click", () => {
+        openModal(conventionTourModal);
+      });
+    }
+    const conventionTourCloseButton = document.querySelector("[data-close-convention-tour]");
+    if (conventionTourCloseButton && conventionTourModal) {
+      conventionTourCloseButton.addEventListener("click", () => {
+        closeModal(conventionTourModal);
+      });
+    }
 
     const externalWebsitesModal = document.querySelector("#external-websites-modal");
-    document.querySelector("[data-open-external-websites]").addEventListener("click", () => {
-      externalWebsitesModal.showModal();
-    });
-    document.querySelector("[data-close-external-websites]").addEventListener("click", () => {
-      closeModal(externalWebsitesModal);
-    });
+    const externalWebsitesTrigger = document.querySelector("[data-open-external-websites]");
+    if (externalWebsitesTrigger && externalWebsitesModal) {
+      externalWebsitesTrigger.addEventListener("click", () => {
+        openModal(externalWebsitesModal);
+      });
+    }
+    const externalWebsitesCloseButton = document.querySelector("[data-close-external-websites]");
+    if (externalWebsitesCloseButton && externalWebsitesModal) {
+      externalWebsitesCloseButton.addEventListener("click", () => {
+        closeModal(externalWebsitesModal);
+      });
+    }
 
     const externalWebsiteDetails = {
       "critical-role": {
@@ -1794,15 +1995,107 @@
       });
     });
 
+    const monsterStatsModal = document.querySelector("#monster-stats-modal");
+    const monsterStatsTrigger = document.querySelector("[data-open-monster-stats]");
+    if (monsterStatsTrigger && monsterStatsModal) {
+      monsterStatsTrigger.addEventListener("click", () => {
+        openModal(monsterStatsModal);
+      });
+    }
+    const monsterStatsCloseButton = document.querySelector("[data-close-monster-stats]");
+    if (monsterStatsCloseButton && monsterStatsModal) {
+      monsterStatsCloseButton.addEventListener("click", () => {
+        closeModal(monsterStatsModal);
+      });
+    }
+
+    const monsterDetails = {
+      mosquito: {
+        name: "Giant Mosquitos",
+        type: "Adversary · Horde (5 HP)",
+        description: "Dozens of fist-sized moquistoes, flying together for protection",
+        stats: [
+          ["Difficulty", "10"],
+          ["Thresholds", "5/9"],
+          ["HP", "6"],
+          ["Stress", "3"],
+          ["ATK", "-2"],
+          ["Attacks", "Proboscis, Melee (1d8+3 phy)"],
+          ["Experience", "Camoflage +2"],
+          ["Motives and Tactics", "Fly away, harass, steal blood"]
+        ],
+        features: [
+          {
+            name: "Horde (1d4 + 1) [Passive]",
+            description: "When the Mosquitoes have marked half or more of their HP, their standard attack deals 1d4 + 1 physical damage instead."
+          },
+          {
+            name: "Flying [Passive]",
+            description: "While flying, the Mosquitoes have a +2 bonus to their Difficulty."
+          },
+          {
+            name: "Bloodsucker [Reaction]",
+            description: "When the Mosquitoes' attack causes a target to mark HP, you can mark a Stress to force the target to mark an additional HP."
+          }
+        ]
+      }
+    };
+    const monsterButtons = document.querySelectorAll("[data-monster]");
+    const monsterName = document.querySelector("#monster-name");
+    const monsterType = document.querySelector("#monster-type");
+    const monsterDescription = document.querySelector("#monster-description");
+    const monsterStatsBody = document.querySelector("#monster-stats-body");
+    const monsterFeatures = document.querySelector("#monster-features");
+    monsterButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const monster = monsterDetails[button.dataset.monster];
+        monsterName.textContent = monster.name;
+        monsterType.textContent = monster.type;
+        monsterDescription.textContent = monster.description;
+        monsterStatsBody.replaceChildren();
+        monster.stats.forEach(([label, value]) => {
+          const row = document.createElement("tr");
+          const heading = document.createElement("th");
+          heading.scope = "row";
+          heading.textContent = label;
+          const cell = document.createElement("td");
+          cell.textContent = value;
+          row.append(heading, cell);
+          monsterStatsBody.append(row);
+        });
+        monsterFeatures.replaceChildren();
+        monster.features.forEach((feature) => {
+          const item = document.createElement("article");
+          item.className = "monster-feature";
+          const name = document.createElement("h4");
+          name.textContent = feature.name;
+          const description = document.createElement("p");
+          description.textContent = feature.description;
+          item.append(name, description);
+          monsterFeatures.append(item);
+        });
+        monsterButtons.forEach((item) => {
+          item.setAttribute("aria-pressed", String(item === button));
+        });
+      });
+    });
+    monsterButtons[0]?.click();
+
     const newsModal = document.querySelector("#news-modal");
-    document.querySelector("[data-open-news]").addEventListener("click", () => {
-      newsTopicSelect.value = "trailer";
-      updateNewsTopic();
-      newsModal.showModal();
-    });
-    document.querySelector("[data-close-news]").addEventListener("click", () => {
-      closeModal(newsModal);
-    });
+    const newsTrigger = document.querySelector("[data-open-news]");
+    if (newsTrigger && newsModal) {
+      newsTrigger.addEventListener("click", () => {
+        newsTopicSelect.value = "trailer";
+        updateNewsTopic();
+        openModal(newsModal);
+      });
+    }
+    const newsCloseButton = document.querySelector("[data-close-news]");
+    if (newsCloseButton && newsModal) {
+      newsCloseButton.addEventListener("click", () => {
+        closeModal(newsModal);
+      });
+    }
 
     
     const newsTopics = {
@@ -1900,7 +2193,6 @@
 
     const episodeCharacters = ["Florence", "Sil", "Kaz", "March", "Giryn", "Shiori", ];
     const episodeStatFields = [
-      "Deaths",
       "Hope",
       "Fear",
       "Hope Spent",
@@ -1909,14 +2201,18 @@
       "Heals",
       "Kills",
       "Stress",
-      "Critical Success"
+      "Stress Relieved",
+      "Armor Spent",
+      "HDYWTDT",
+      "Critical Success",
+      "Kazoo Plays"
     ];
     const episodeStatValues = {
-      Florence: { Hope: 3, Fear: 2, Hope Spent: 3, Stress: 1, Damage Dealt: 13 },
-      Shiori: { Hope: 2, Fear: 2, Damage Dealt: 30, Damage Taken: 3, Kills: 2, Stress: 1 },
-      Kaz: { Hope: 3, Damage Taken: 1, Damage Dealt: 14, Stress: 1, Critical Success: 1 },
-      Sil: { Hope: 0, Fear: 3, Damage Dealt: 18, Damage Taken: 2, Hope Spent: 1, Kills: 1 },
-      Giryn: { Hope: 1, Fear: 2, Damage Dealt: 17, Damage Taken: 2 }
+      Florence: { Hope: 3, Fear: 2, "Hope Spent": 3, Stress: 1, "Damage Dealt": 13 },
+      Shiori: { Hope: 2, Fear: 2, "Damage Dealt": 30, "Damage Taken": 3, Kills: 2, Stress: 1 },
+      Kaz: { Hope: 3, "Damage Taken": 1, "Damage Dealt": 14, Stress: 1, "Critical Success": 1, "Kazoo Plays": 2 },
+      Sil: { Hope: 0, Fear: 3, "Damage Dealt": 18, "Damage Taken": 2, "Hope Spent": 1, Kills: 1 },
+      Giryn: { Hope: 1, Fear: 2, "Damage Dealt": 17, "Damage Taken": 2 }
     };
     const renderEpisodeStats = () => {
       episodeStatsCaption.textContent = `Episode ${episodeStatsSelect.value}`;
@@ -1931,7 +2227,7 @@
         episodeStatFields.forEach((field) => {
           const cell = document.createElement("td");
           const value = episodeStatValues[character]?.[field];
-          cell.textContent = value ?? "—";
+          cell.textContent = value ?? 0;
           row.append(cell);
         });
         episodeStatsBody.append(row);
@@ -1940,12 +2236,32 @@
     episodeStatsSelect.addEventListener("change", renderEpisodeStats);
     renderEpisodeStats();
 
-    document.querySelector("[data-open-character-stats]").addEventListener("click", () => {
-      characterStatsModal.showModal();
-    });
-    document.querySelector("[data-close-character-stats]").addEventListener("click", () => {
-      closeModal(characterStatsModal);
-    });
+    const characterStatsTrigger = document.querySelector("[data-open-character-stats]");
+    if (characterStatsTrigger && characterStatsModal) {
+      characterStatsTrigger.addEventListener("click", () => {
+        openModal(characterStatsModal);
+      });
+    }
+    const characterStatsCloseButton = document.querySelector("[data-close-character-stats]");
+    if (characterStatsCloseButton && characterStatsModal) {
+      characterStatsCloseButton.addEventListener("click", () => {
+        closeModal(characterStatsModal);
+      });
+    }
+
+    const miscStatsModal = document.querySelector("#misc-stats-modal");
+    const miscStatsTrigger = document.querySelector("[data-open-misc-stats]");
+    if (miscStatsTrigger && miscStatsModal) {
+      miscStatsTrigger.addEventListener("click", () => {
+        openModal(miscStatsModal);
+      });
+    }
+    const miscStatsCloseButton = document.querySelector("[data-close-misc-stats]");
+    if (miscStatsCloseButton && miscStatsModal) {
+      miscStatsCloseButton.addEventListener("click", () => {
+        closeModal(miscStatsModal);
+      });
+    }
 
     document.querySelectorAll("[data-open-gallery]").forEach((trigger) => {
       trigger.addEventListener("click", () => {
