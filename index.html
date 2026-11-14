@@ -1306,12 +1306,13 @@
             <th scope="col">Deaths</th>
             <th scope="col">Hope</th>
             <th scope="col">Fear</th>
-            <th scope="col">Spells</th>
+            <th scope="col">Hope Spent</th>
             <th scope="col">Damage <br />Dealt</th>
             <th scope="col">Damage <br />Taken</th>
             <th scope="col">Heals</th>
             <th scope="col">Kills</th>
-            <th scope="col">KOs</th>
+            <th scope="col">Stress</th>
+            <th scope="col">Critical Success</th>
           </tr>
         </thead>
         <tbody id="episode-stats-body"></tbody>
@@ -1897,22 +1898,25 @@
     const premiereCountdownInterval = window.setInterval(updatePremiereCountdown, 1000);
     updatePremiereCountdown();
 
-    const episodeCharacters = ["Florence", "Sil", "Kaz", "March", "Giryn", "Shiori"];
+    const episodeCharacters = ["Florence", "Sil", "Kaz", "March", "Giryn", "Shiori", ];
     const episodeStatFields = [
       "Deaths",
       "Hope",
       "Fear",
-      "Spells",
+      "Hope Spent",
       "Damage Dealt",
       "Damage Taken",
       "Heals",
       "Kills",
-      "KOs"
+      "Stress"
+      "Critical Success"
     ];
     const episodeStatValues = {
-      Florence: { Hope: 2, Fear: 1 },
-      Shiori: { Fear: 1 },
-      Kaz: { Hope: 1 }
+      Florence: { Hope: 2, Fear: 2 },
+      Shiori: { Hope: 0, Fear: 2, Damage Dealt: 16, Damage Taken: 9, Kills: 1, Stress: 1 },
+      Kaz: { Hope: 2, Damage Taken: 1, Damage Dealt: 14, Stress: 2, Critical Success: 1 },
+      Sil: { Hope: 0, Fear: 1, Damage Dealt: 7, Damage Taken: 2, Hope Spent: 1 },
+      Giryn: { Hope: 0, Fear: 1, Damage Dealt: 9, Damage Taken: 6 }
     };
     const renderEpisodeStats = () => {
       episodeStatsCaption.textContent = `Episode ${episodeStatsSelect.value}`;
