@@ -464,28 +464,6 @@
       backdrop-filter: blur(0);
     }
 
-    .welcome-modal {
-      width: min(1000px, calc(100vw - 32px));
-      padding: 8px;
-      overflow: hidden;
-      background: #08090d;
-    }
-
-    .welcome-image-button {
-      display: block;
-      width: 100%;
-      padding: 0;
-      border: 0;
-      background: transparent;
-      cursor: pointer;
-    }
-
-    .welcome-image-button img {
-      display: block;
-      width: 100%;
-      max-height: calc(100dvh - 48px);
-      object-fit: contain;
-    }
 
     @keyframes modal-open {
       from {
@@ -1543,8 +1521,8 @@
         <tr><th scope="row">Pronouns</th><td>She/Her</td></tr>
         <tr><th scope="row">Age</th><td>—</td></tr>
         <tr><th scope="row">Class</th><td>Faerie Seraph</td></tr>
-        <tr><th scope="row">Subclass</th><td>—</td></tr>
-        <tr><th scope="row">Heritage</th><td>—</td></tr>
+        <tr><th scope="row">Ancestry</th><td>Faerie</td></tr>
+        <tr><th scope="row">Community</th><td>Orderborne</td></tr>
         <tr><th scope="row">Domain</th><td>—</td></tr>
         <tr><th scope="row">Height</th><td>18 in (45.72 cm)</td></tr>
       </tbody>
@@ -1552,17 +1530,19 @@
     <table class="character-stats">
       <caption>Character Stats</caption>
       <tbody>
-        <tr><th scope="row">Evasion</th><td>—</td></tr>
-        <tr><th scope="row">Armor</th><td>—</td></tr>
-        <tr><th scope="row">Agility</th><td>—</td></tr>
-        <tr><th scope="row">Strength</th><td>—</td></tr>
-        <tr><th scope="row">Finesse</th><td>—</td></tr>
-        <tr><th scope="row">Instinct</th><td>—</td></tr>
-        <tr><th scope="row">Presence</th><td>—</td></tr>
-        <tr><th scope="row">Knowledge</th><td>—</td></tr>
-        <tr><th scope="row">Level</th><td>—</td></tr>
-        <tr><th scope="row">HP</th><td>—</td></tr>
-        <tr><th scope="row">Stress</th><td>—</td></tr>
+        <tr><th scope="row">Evasion</th><td>8</td></tr>
+        <tr><th scope="row">Armor</th><td>7</td></tr>
+        <tr><th scope="row">Agility</th><td>0</td></tr>
+        <tr><th scope="row">Strength</th><td>+2</td></tr>
+        <tr><th scope="row">Finesse</th><td>0</td></tr>
+        <tr><th scope="row">Instinct</th><td>+1</td></tr>
+        <tr><th scope="row">Presence</th><td>+1</td></tr>
+        <tr><th scope="row">Knowledge</th><td>-1</td></tr>
+        <tr><th scope="row">Level</th><td>2</td></tr>
+        <tr><th scope="row">HP</th><td>8</td></tr>
+        <tr><th scope="row">Stress</th><td>7</td></tr>
+        <tr><th scope="row">Minor DMG Threshold</th><td>12</td></tr>
+        <tr><th scope="row">Major DMG Threshold</th><td>25</td></tr>
       </tbody>
     </table>
     <table class="character-details">
@@ -1577,12 +1557,6 @@
     <button class="modal-close" type="button" data-close-gallery>Close</button>
   </dialog>
 
-
-  <dialog class="modal welcome-modal" id="welcome-modal" aria-label="Welcome to Shattered Legends">
-    <button class="welcome-image-button" id="welcome-image-button" type="button" aria-label="Close welcome image">
-      <img src="https://raw.githubusercontent.com/SBERB1812/critholo/refs/heads/main/SLStart.jpg" alt="Shattered Legends">
-    </button>
-  </dialog>
 
   <script>
     const closeTimers = new WeakMap();
@@ -1610,13 +1584,6 @@
         dialog.classList.remove("is-closing");
       });
     });
-
-    const welcomeModal = document.querySelector("#welcome-modal");
-    document.querySelector("#welcome-image-button").addEventListener("click", () => closeModal(welcomeModal));
-    welcomeModal.addEventListener("click", (event) => {
-      if (event.target === welcomeModal) closeModal(welcomeModal);
-    });
-    welcomeModal.showModal();
 
     const worldModal = document.querySelector("#world-modal");
 
