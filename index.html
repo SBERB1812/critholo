@@ -1069,7 +1069,7 @@
           </thead>
           <tbody>
             <tr><th scope="row">01</th>
-                <td>—</td>
+                <td>1</td>
                 <td>1</td>
                 <td>—</td>
                 <td>—</td>
@@ -1896,7 +1896,7 @@
     const premiereCountdownInterval = window.setInterval(updatePremiereCountdown, 1000);
     updatePremiereCountdown();
 
-    const episodeCharacters = ["Florence", "Sil", "Kaz", "March", "Giryn"];
+    const episodeCharacters = ["Florence", "Sil", "Kaz", "March", "Giryn", "Shiori"];
     const episodeStatFields = [
       "Deaths",
       "Hope",
@@ -1908,6 +1908,10 @@
       "Kills",
       "KOs"
     ];
+    const episodeStatValues = {
+      Florence: { Hope: 1 },
+      Shiori: { Fear: 1 }
+    };
     const renderEpisodeStats = () => {
       episodeStatsCaption.textContent = `Episode ${episodeStatsSelect.value}`;
       episodeStatsBody.replaceChildren();
@@ -1918,9 +1922,10 @@
         name.textContent = character;
         row.append(name);
 
-        episodeStatFields.forEach(() => {
+        episodeStatFields.forEach((field) => {
           const cell = document.createElement("td");
-          cell.textContent = "—";
+          const value = episodeStatValues[character]?.[field];
+          cell.textContent = value ?? "—";
           row.append(cell);
         });
         episodeStatsBody.append(row);
