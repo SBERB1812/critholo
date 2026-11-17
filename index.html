@@ -1188,7 +1188,9 @@
     <p>
       <b>Website design:</b> <a href="https://x.com/SBERBholo" target="_blank">SB</a><br />
       <b>Icons:</b> <a href="https://x.com/Quarases_" target="_blank">Quarases</a><br />
-      <b>Website Review and Information:</b> <a href="https://x.com/dubbhae" target="_blank">Dubbie</a>
+      <b>Website Review and Information:</b> <a href="https://x.com/dubbhae" target="_blank">Dubbie</a><br />
+      <b>Character Stat Sheets:</b> <a href="https://x.com/victory7TCX">Seventysix</a><br />
+      <b>Trackers: </b> Aven, Dubbie, Squid, Quarases
     </p><br /><br />
 
     <p><b>Shattered Legends Credits:</b><br />
@@ -1411,10 +1413,11 @@
 
   <dialog class="modal" id="misc-stats-modal" aria-labelledby="misc-stats-title">
     <h2 id="misc-stats-title">Miscellaneous Stats</h2>
-    <p><b>Kazoo Plays:</b></p>
+    <p><b>Kazoo Plays:</b> 2</p>
+    <p><b>Tantrums Threatened:</b> </p>
+    <p><b>Shade at Kaz from Giryn:</b></p>
     <p><b>WINTER IS COMING:</b> </p>
     <p><b>SUMMER IS ENDING:</b> </p>
-    <p><b>Tantrums Threatened:</b> </p>
     <button class="modal-close" type="button" data-close-misc-stats>Close</button>
   </dialog>
 
@@ -2045,11 +2048,11 @@
       "Critical Success",
     ];
     const episodeStatValues = {
-      Florence: { Hope: 3, Fear: 2, "Hope Spent": 3, Stress: 1, "Damage Dealt": 13 },
-      March: { Hope: 2, Fear: 2, "Damage Dealt": 30, "Damage Taken": 3, Kills: 2, Stress: 1 },
-      Kaz: { Hope: 3, "Damage Taken": 1, "Damage Dealt": 14, Stress: 1, "Critical Success": 1, },
-      Sil: { Hope: 0, Fear: 3, "Damage Dealt": 18, "Damage Taken": 2, "Hope Spent": 1, Kills: 1 },
-      Giryn: { Hope: 1, Fear: 2, "Damage Dealt": 17, "Damage Taken": 2 }
+      Florence: { Hope: 5, Fear: 2, "Hope Spent": 3, "Damage Dealt": 13, "Damage Taken": 0, Heals: 0, Kills: 0, Stress: 0, "Stress Relieved": 0, "Armor Spent": 0, HDYWTDT: 0, "Critical Success": 0 },
+      March: { Hope: 2, Fear: 2, "Hope Spent": 0, Stress: 0, "Damage Dealt": 30, "Damage Taken": 3, "Armor Spent": 1, Heals: 3, Kills: 2, "Stress Relieved": 0, HDYWTDT: 0, "Critical Success": 1 },
+      Kaz: { Hope: 3, Fear: 0, "Hope Spent": 1, Stress: 1, "Stress Relieved": 1, "Damage Dealt": 14, "Damage Taken": 1, Heals: 1, Kills: 0, "Armor Spent": 0, HDYWTDT: 0, "Critical Success": 1 },
+      Sil: { Hope: 2, Fear: 3, "Hope Spent": 1, "Damage Dealt": 18, "Damage Taken": 2, Heals: 4, Kills: 1, Stress: 0, "Stress Relieved": 0, "Armor Spent": 0, HDYWTDT: 1, "Critical Success": 0 },
+      Giryn: { Hope: 2, Fear: 2, "Hope Spent": 0, "Damage Dealt": 17, "Damage Taken": 2, Heals: 2, Kills: 0, Stress: 1, "Stress Relieved": 0, "Armor Spent": 0, HDYWTDT: 0, "Critical Success": 0 }
     };
     const renderEpisodeStats = () => {
       episodeStatsCaption.textContent = `Episode ${episodeStatsSelect.value}`;
