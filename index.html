@@ -614,6 +614,11 @@
       margin-bottom: 14px;
     }
 
+    .gallery-modal .character-stats-image {
+      max-height: none;
+      margin: 12px 0 0;
+    }
+
     .modal.gallery-modal h2 {
       margin-bottom: 10px;
     }
@@ -1150,6 +1155,7 @@
       <div class="stats-button-group">
         <button class="stats-button" type="button" data-open-character-stats>Individual Character Stats</button>
         <button class="stats-button" type="button" data-open-misc-stats>Miscellaneous Stats</button>
+        <button class="stats-button" type="button" data-open-short-rest>Short Rest</button>
       </div>
     </section>
 
@@ -1395,7 +1401,6 @@
             <th scope="col">Armor<br />Spent</th>
             <th scope="col">HDYWTDT</th>
             <th scope="col">Critical<br />Success</th>
-            <th scope="col">Kazoo Plays</th>
           </tr>
         </thead>
         <tbody id="episode-stats-body"></tbody>
@@ -1406,6 +1411,15 @@
 
   <dialog class="modal" id="misc-stats-modal" aria-labelledby="misc-stats-title">
     <h2 id="misc-stats-title">Miscellaneous Stats</h2>
+    <p><b>Kazoo Plays:</b></p>
+    <p><b>WINTER IS COMING:</b> </p>
+    <p><b>SUMMER IS ENDING:</b> </p>
+    <p><b>Tantrums Threatened:</b> </p>
+    <button class="modal-close" type="button" data-close-misc-stats>Close</button>
+  </dialog>
+
+  <dialog class="modal" id="short-rest-modal" aria-labelledby="short-rest-title">
+    <h2 id="short-rest-title">Short Rest</h2>
     <div class="episode-stats-wrap">
       <table class="episode-stats-table misc-stats-table">
         <caption>Short Rest Choices</caption>
@@ -1429,7 +1443,7 @@
         </tbody>
       </table>
     </div>
-    <button class="modal-close" type="button" data-close-misc-stats>Close</button>
+    <button class="modal-close" type="button" data-close-short-rest>Close</button>
   </dialog>
 
   <!--THIS IS THE FLORENCE MODAL-->
@@ -1441,44 +1455,8 @@
     <p>"Is there drama? Is there gossip? Tell me!"</p>
     <table class="character-info">
       <caption>Character Information</caption>
-      <tbody>
-        <tr><th scope="row">Pronouns</th><td>She/Her</td></tr>
-        <tr><th scope="row">Age</th><td>—</td></tr>
-        <tr><th scope="row">Class</th><td>Witch</td></tr>
-        <tr><th scope="row">Ancestry</th><td>Tidekin</td></tr>
-        <tr><th scope="row">Community</th><td>Hearthborne</td></tr>
-        <tr><th scope="row">Domain</th><td>—</td></tr>
-        <tr><th scope="row">Height</th><td>-</td></tr>
-        <tr><th scope="row">Companion</th><td>Squish (Spectral Octopus)</td></tr>
-      </tbody>
     </table>
-    <table class="character-stats">
-      <caption>Character Stats</caption>
-      <tbody>
-        <tr><th scope="row">Evasion</th><td>12</td></tr>
-        <tr><th scope="row">Armor</th><td>3</td></tr>
-        <tr><th scope="row">Agility</th><td>+1</td></tr>
-        <tr><th scope="row">Strength</th><td>-1</td></tr>
-        <tr><th scope="row">Finesse</th><td>0</td></tr>
-        <tr><th scope="row">Instinct</th><td>+3</td></tr>
-        <tr><th scope="row">Presence</th><td>+1</td></tr>
-        <tr><th scope="row">Knowledge</th><td>+1</td></tr>
-        <tr><th scope="row">Level</th><td>2</td></tr>
-        <tr><th scope="row">HP</th><td>6</td></tr>
-        <tr><th scope="row">Stress</th><td>6</td></tr>
-        <tr><th scope="row">Minor DMG Threshold</th><td>7</td></tr>
-        <tr><th scope="row">Major DMG Threshold</th><td>13</td></tr>
-      </tbody>
-    </table>
-    <table class="character-details">
-      <caption>Character Details</caption>
-      <tbody>
-        <tr><th scope="row">Hope</th><td>—</td></tr>
-        <tr><th scope="row">Experiences</th><td>—</td></tr>
-        <tr><th scope="row">Connections</th><td>—</td></tr>
-        <tr><th scope="row">Background</th><td>—</td></tr>
-      </tbody>
-    </table>
+    <img class="modal-art character-stats-image" src="https://raw.githubusercontent.com/SBERB1812/critholo/refs/heads/main/florence.png" alt="Florence character stats">
     <button class="modal-close" type="button" data-close-gallery>Close</button>
   </dialog>
 
@@ -1491,43 +1469,8 @@
       <p>"How nice to see you...what brings you here?"</p>
     <table class="character-info">
       <caption>Character Information</caption>
-      <tbody>
-        <tr><th scope="row">Pronouns</th><td>She/Her</td></tr>
-        <tr><th scope="row">Age</th><td>—</td></tr>
-        <tr><th scope="row">Class</th><td>Rogue</td></tr>
-        <tr><th scope="row">Ancestry</th><td>Elf</td></tr>
-        <tr><th scope="row">Community</th><td>Skyborne</td></tr>
-        <tr><th scope="row">Domain</th><td>—</td></tr>
-        <tr><th scope="row">Height</th><td>-</td></tr>
-      </tbody>
     </table>
-    <table class="character-stats">
-      <caption>Character Stats</caption>
-      <tbody>
-        <tr><th scope="row">Evasion</th><td>14</td></tr>
-        <tr><th scope="row">Armor</th><td>4</td></tr>
-        <tr><th scope="row">Agility</th><td>+2</td></tr>
-        <tr><th scope="row">Strength</th><td>-1</td></tr>
-        <tr><th scope="row">Finesse</th><td>+1</td></tr>
-        <tr><th scope="row">Instinct</th><td>+1</td></tr>
-        <tr><th scope="row">Presence</th><td>0</td></tr>
-        <tr><th scope="row">Knowledge</th><td>0</td></tr>
-        <tr><th scope="row">Level</th><td>2</td></tr>
-        <tr><th scope="row">HP</th><td>6</td></tr>
-        <tr><th scope="row">Stress</th><td>6</td></tr>
-        <tr><th scope="row">Minor DMG Threshold</th><td>9</td></tr>
-        <tr><th scope="row">Major DMG Threshold</th><td>18</td></tr>
-      </tbody>
-    </table>
-    <table class="character-details">
-      <caption>Character Details</caption>
-      <tbody>
-        <tr><th scope="row">Hope</th><td>—</td></tr>
-        <tr><th scope="row">Experiences</th><td>—</td></tr>
-        <tr><th scope="row">Connections</th><td>—</td></tr>
-        <tr><th scope="row">Background</th><td>—</td></tr>
-      </tbody>
-    </table>
+    <img class="modal-art character-stats-image" src="https://raw.githubusercontent.com/SBERB1812/critholo/refs/heads/main/silfael.png" alt="Sil character stats">
     <button class="modal-close" type="button" data-close-gallery>Close</button>
   </dialog>
 
@@ -1540,43 +1483,8 @@
       <p>"Everyone's a critic, huh..."</p>
     <table class="character-info">
       <caption>Character Information</caption>
-      <tbody>
-        <tr><th scope="row">Pronouns</th><td>He/Him</td></tr>
-        <tr><th scope="row">Age</th><td>—</td></tr>
-        <tr><th scope="row">Class</th><td>Bard</td></tr>
-        <tr><th scope="row">Ancestry</th><td>Infernis</td></tr>
-        <tr><th scope="row">Community</th><td>Skyborne</td></tr>
-        <tr><th scope="row">Domain</th><td>—</td></tr>
-        <tr><th scope="row">Height</th><td>-</td></tr>
-      </tbody>
     </table>
-    <table class="character-stats">
-      <caption>Character Stats</caption>
-      <tbody>
-        <tr><th scope="row">Evasion</th><td>10</td></tr>
-        <tr><th scope="row">Armor</th><td>4</td></tr>
-        <tr><th scope="row">Agility</th><td>0</td></tr>
-        <tr><th scope="row">Strength</th><td>-1</td></tr>
-        <tr><th scope="row">Finesse</th><td>+1</td></tr>
-        <tr><th scope="row">Instinct</th><td>+1</td></tr>
-        <tr><th scope="row">Presence</th><td>+2</td></tr>
-        <tr><th scope="row">Knowledge</th><td>0</td></tr>
-        <tr><th scope="row">Level</th><td>2</td></tr>
-        <tr><th scope="row">HP</th><td>5</td></tr>
-        <tr><th scope="row">Stress</th><td>6</td></tr>
-        <tr><th scope="row">Minor DMG Threshold</th><td>9</td></tr>
-        <tr><th scope="row">Major DMG Threshold</th><td>18</td></tr>
-      </tbody>
-    </table>
-    <table class="character-details">
-      <caption>Character Details</caption>
-      <tbody>
-        <tr><th scope="row">Hope</th><td>—</td></tr>
-        <tr><th scope="row">Experiences</th><td>—</td></tr>
-        <tr><th scope="row">Connections</th><td>—</td></tr>
-        <tr><th scope="row">Background</th><td>—</td></tr>
-      </tbody>
-    </table>
+    <img class="modal-art character-stats-image" src="https://raw.githubusercontent.com/SBERB1812/critholo/refs/heads/main/kaz.png" alt="Kaz character stats">
     <button class="modal-close" type="button" data-close-gallery>Close</button>
   </dialog>
 
@@ -1589,43 +1497,8 @@
       <p>"I will check in with my little Fungril Network..."</p>
     <table class="character-info">
       <caption>Character Information</caption>
-      <tbody>
-        <tr><th scope="row">Pronouns</th><td>She/Her</td></tr>
-        <tr><th scope="row">Age</th><td>—</td></tr>
-        <tr><th scope="row">Class</th><td>Druid</td></tr>
-        <tr><th scope="row">Ancestry</th><td>Fungal</td></tr>
-        <tr><th scope="row">Community</th><td>Wildborne</td></tr>
-        <tr><th scope="row">Domain</th><td>—</td></tr>
-        <tr><th scope="row">Height</th><td>-</td></tr>
-      </tbody>
     </table>
-    <table class="character-stats">
-      <caption>Character Stats</caption>
-      <tbody>
-        <tr><th scope="row">Evasion</th><td>11</td></tr>
-        <tr><th scope="row">Armor</th><td>4</td></tr>
-        <tr><th scope="row">Agility</th><td>+2</td></tr>
-        <tr><th scope="row">Strength</th><td>-1</td></tr>
-        <tr><th scope="row">Finesse</th><td>0</td></tr>
-        <tr><th scope="row">Instinct</th><td>+1</td></tr>
-        <tr><th scope="row">Presence</th><td>+1</td></tr>
-        <tr><th scope="row">Knowledge</th><td>0</td></tr>
-        <tr><th scope="row">Level</th><td>2</td></tr>
-        <tr><th scope="row">HP</th><td>6</td></tr>
-        <tr><th scope="row">Stress</th><td>6</td></tr>
-        <tr><th scope="row">Minor DMG Threshold</th><td>9</td></tr>
-        <tr><th scope="row">Major DMG Threshold</th><td>18</td></tr>
-      </tbody>
-    </table>
-    <table class="character-details">
-      <caption>Character Details</caption>
-      <tbody>
-        <tr><th scope="row">Hope</th><td>—</td></tr>
-        <tr><th scope="row">Experiences</th><td>—</td></tr>
-        <tr><th scope="row">Connections</th><td>—</td></tr>
-        <tr><th scope="row">Background</th><td>—</td></tr>
-      </tbody>
-    </table>
+    <img class="modal-art character-stats-image" src="https://raw.githubusercontent.com/SBERB1812/critholo/refs/heads/main/march.png" alt="March character stats">
     <button class="modal-close" type="button" data-close-gallery>Close</button>
   </dialog>
 
@@ -1638,43 +1511,8 @@
       <p>"The end of summer is coming!"</p>
     <table class="character-info">
       <caption>Character Information</caption>
-      <tbody>
-        <tr><th scope="row">Pronouns</th><td>She/Her</td></tr>
-        <tr><th scope="row">Age</th><td>—</td></tr>
-        <tr><th scope="row">Class</th><td>Seraph</td></tr>
-        <tr><th scope="row">Ancestry</th><td>Faerie</td></tr>
-        <tr><th scope="row">Community</th><td>Orderborne</td></tr>
-        <tr><th scope="row">Domain</th><td>—</td></tr>
-        <tr><th scope="row">Height</th><td>18 in (45.72 cm)</td></tr>
-      </tbody>
     </table>
-    <table class="character-stats">
-      <caption>Character Stats</caption>
-      <tbody>
-        <tr><th scope="row">Evasion</th><td>8</td></tr>
-        <tr><th scope="row">Armor</th><td>7</td></tr>
-        <tr><th scope="row">Agility</th><td>0</td></tr>
-        <tr><th scope="row">Strength</th><td>+2</td></tr>
-        <tr><th scope="row">Finesse</th><td>0</td></tr>
-        <tr><th scope="row">Instinct</th><td>+1</td></tr>
-        <tr><th scope="row">Presence</th><td>+1</td></tr>
-        <tr><th scope="row">Knowledge</th><td>-1</td></tr>
-        <tr><th scope="row">Level</th><td>2</td></tr>
-        <tr><th scope="row">HP</th><td>8</td></tr>
-        <tr><th scope="row">Stress</th><td>7</td></tr>
-        <tr><th scope="row">Minor DMG Threshold</th><td>12</td></tr>
-        <tr><th scope="row">Major DMG Threshold</th><td>25</td></tr>
-      </tbody>
-    </table>
-    <table class="character-details">
-      <caption>Character Details</caption>
-      <tbody>
-        <tr><th scope="row">Hope</th><td>—</td></tr>
-        <tr><th scope="row">Experiences</th><td>—</td></tr>
-        <tr><th scope="row">Connections</th><td>—</td></tr>
-        <tr><th scope="row">Background</th><td>—</td></tr>
-      </tbody>
-    </table>
+    <img class="modal-art character-stats-image" src="https://raw.githubusercontent.com/SBERB1812/critholo/refs/heads/main/giryn.png" alt="Giryn character stats">
     <button class="modal-close" type="button" data-close-gallery>Close</button>
   </dialog>
 
@@ -2205,12 +2043,11 @@
       "Armor Spent",
       "HDYWTDT",
       "Critical Success",
-      "Kazoo Plays"
     ];
     const episodeStatValues = {
       Florence: { Hope: 3, Fear: 2, "Hope Spent": 3, Stress: 1, "Damage Dealt": 13 },
       March: { Hope: 2, Fear: 2, "Damage Dealt": 30, "Damage Taken": 3, Kills: 2, Stress: 1 },
-      Kaz: { Hope: 3, "Damage Taken": 1, "Damage Dealt": 14, Stress: 1, "Critical Success": 1, "Kazoo Plays": 2 },
+      Kaz: { Hope: 3, "Damage Taken": 1, "Damage Dealt": 14, Stress: 1, "Critical Success": 1, },
       Sil: { Hope: 0, Fear: 3, "Damage Dealt": 18, "Damage Taken": 2, "Hope Spent": 1, Kills: 1 },
       Giryn: { Hope: 1, Fear: 2, "Damage Dealt": 17, "Damage Taken": 2 }
     };
@@ -2260,6 +2097,20 @@
     if (miscStatsCloseButton && miscStatsModal) {
       miscStatsCloseButton.addEventListener("click", () => {
         closeModal(miscStatsModal);
+      });
+    }
+
+    const shortRestModal = document.querySelector("#short-rest-modal");
+    const shortRestTrigger = document.querySelector("[data-open-short-rest]");
+    if (shortRestTrigger && shortRestModal) {
+      shortRestTrigger.addEventListener("click", () => {
+        openModal(shortRestModal);
+      });
+    }
+    const shortRestCloseButton = document.querySelector("[data-close-short-rest]");
+    if (shortRestCloseButton && shortRestModal) {
+      shortRestCloseButton.addEventListener("click", () => {
+        closeModal(shortRestModal);
       });
     }
 
