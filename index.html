@@ -9,11 +9,11 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="Shattered Legends">
   <meta property="og:description" content="Enter the fractured realm of Shattered Legends. Their story begins now.">
-  <meta property="og:image" content="https://raw.githubusercontent.com/SBERB1812/critholo/refs/heads/main/SLStart.jpg">
+  <meta property="og:image" content="https://raw.githubusercontent.com/SBERB1812/critholo/refs/heads/main/SLPI.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Shattered Legends">
   <meta name="twitter:description" content="Enter the fractured realm of Shattered Legends.">
-  <meta name="twitter:image" content="https://raw.githubusercontent.com/SBERB1812/critholo/refs/heads/main/SLStart.jpg">
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/SBERB1812/critholo/refs/heads/main/SLPI.png">
   <meta name="twitter:image:alt" content="Shattered Legends">
   
   <style>
@@ -128,9 +128,24 @@
       margin-bottom: 28px;
     }
 
+    .hero-title-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
     .hero-copy h1 {
       font-size: clamp(2rem, 5vw, 5rem);
       white-space: normal;
+    }
+
+    .matt-fear {
+      flex: 0 0 auto;
+      color: #e2a56c;
+      font-size: clamp(1rem, 2vw, 1.4rem);
+      font-weight: 700;
+      white-space: nowrap;
     }
 
     .hero-content {
@@ -935,6 +950,11 @@
         margin-bottom: 24px;
       }
 
+      .hero-title-row {
+        flex-wrap: wrap;
+        gap: 12px 24px;
+      }
+
       .side-menu {
         position: static;
         width: min(1120px, calc(100% - 48px));
@@ -1038,6 +1058,7 @@
 <!--THIS IS THE LEFT SIDE NAVIGATION-->
 <nav class="side-menu" aria-label="Explore">
   <button class="button button-secondary" type="button" data-open-news>News</button>
+      <button class="button button-secondary" type="button" data-open-merch>Merch</button>
       <button class="button button-secondary" type="button" data-open-lore>Lore (WIP)</button>
       <button class="button button-secondary" type="button" data-open-locations>Locations</button>
       <button class="button button-secondary" type="button" data-open-monster-stats>Monster Stats</button>
@@ -1051,7 +1072,10 @@
       <section class="hero" id="story" aria-labelledby="title">
         <div class="hero-copy">
           <p class="eyebrow">A realm on the edge of myth</p>
-          <h1 id="title">Shattered <span>Legends</span></h1>
+          <div class="hero-title-row">
+            <h1 id="title">Shattered <span>Legends</span></h1>
+            <p class="matt-fear">Matt Fear: 10</p>
+          </div>
         </div>
         <div class="hero-content">
           <p class="intro" id="world">
@@ -1156,6 +1180,7 @@
         <button class="stats-button" type="button" data-open-character-stats>Individual Character Stats</button>
         <button class="stats-button" type="button" data-open-misc-stats>Miscellaneous Stats</button>
         <button class="stats-button" type="button" data-open-short-rest>Short Rest</button>
+        <button class="stats-button" type="button" data-open-all-rolls>All Rolls</button>
       </div>
     </section>
 
@@ -1238,6 +1263,33 @@
     <button class="modal-close" type="button" data-close-daggerheart>Close</button>
   </dialog>
 
+  <dialog class="modal" id="merch-modal" aria-labelledby="merch-modal-title">
+    <h2 id="merch-modal-title">Merch</h2>
+    <h3>Ultra Pro Merch:</h3><br />
+    <p><b>Zip Hoodies:</b></p><br />
+    <p><a href="https://ultrapro.com/products/shattered-legends-zip-hoodie?_pos=1&_sid=380a6ee56&_ss=r">Shattered Legends Zip Hoodie</a></p><br />
+    <p><a href="https://ultrapro.com/products/shattered-legends-siliun-faell-zip-hoodie?_pos=3&_sid=380a6ee56&_ss=r">Siliun Faell Zip Hoodie</a></p><br />
+    <p><a href="https://ultrapro.com/products/shattered-legends-giryn-zip-hoodie?_pos=4&_sid=380a6ee56&_ss=r">Giryn Zip Hoodie</a></p><br />
+    <p><a href="https://ultrapro.com/products/shattered-legends-kaz-oogod-zip-hoodie?_pos=13&_sid=380a6ee56&_ss=r">Kaz Oogod Zip Hoodie</a></p><br />
+    <p><a href="https://ultrapro.com/products/shattered-legends-marchen-rosemyne-zip-hoodie?_pos=14&_sid=380a6ee56&_ss=r">Marchen Rosemyne Zip Hoodie</a></p><br />
+    <p><a href="https://ultrapro.com/products/shattered-legends-florence-zip-hoodie?_pos=17&_sid=380a6ee56&_ss=r">Florence Zip Hoodie</a></p><br /><br />
+    <p><b>Stitched Playmats:</b></p>
+    <p><a href="https://ultrapro.com/products/shattered-legends-stitched-playmat-group-shot?_pos=2&_sid=380a6ee56&_ss=r">Shattered Legends Stitched Playmat (Group Shot)</a></p><br />
+    <p><a href="https://ultrapro.com/products/shattered-legends-siliun-faell-stitched-playmat?_pos=5&_sid=380a6ee56&_ss=r">Siliun Faell Stitched Playmat</a></p><br />
+    <p><a href="https://ultrapro.com/products/shattered-legends-marchen-rosemyne-stitched-playmat?_pos=7&_sid=380a6ee56&_ss=r">Marchen Rosemyne Stitched Playmat</a></p><br />
+    <p><a href="https://ultrapro.com/products/shattered-legends-giryn-stitched-playmat?_pos=8&_sid=380a6ee56&_ss=r">Giryn Stitched Playmat</a></p><br />
+    <p><a href="https://ultrapro.com/products/shattered-legends-kaz-oogod-stitched-playmat?_pos=10&_sid=380a6ee56&_ss=r">Kaz Oogod Stitched Playmat</a></p><br />
+    <p><a href="https://ultrapro.com/products/shattered-legends-florence-stitched-playmat?_pos=11&_sid=380a6ee56&_ss=r">Florence Stitched Playmat</a></p><br /><br />
+    <p><b>T-Shirts:</b></p>
+    <p><a href="https://ultrapro.com/products/shattered-legends-t-shirt?_pos=6&_sid=380a6ee56&_ss=r">Shattered Legends T-Shirt</a></p><br />
+    <p><a href="https://ultrapro.com/products/shattered-legends-siliun-faell-t-shirt?_pos=9&_sid=380a6ee56&_ss=r">Siliun Faell T-Shirt</a></p><br />
+    <p><a href="https://ultrapro.com/products/shattered-legends-marchen-rosemyne-t-shirt?_pos=12&_sid=380a6ee56&_ss=r">Marchen Rosemyne T-Shirt</a></p><br />
+    <p><a href="https://ultrapro.com/products/shattered-legends-giryn-t-shirt?_pos=15&_sid=380a6ee56&_ss=r">Giryn T-Shirt</a></p><br />
+    <p><a href="https://ultrapro.com/products/shattered-legends-kaz-oogod-t-shirt?_pos=16&_sid=380a6ee56&_ss=r">Kaz Oogod T-Shirt</a></p><br />
+    <p><a href="https://ultrapro.com/products/shattered-legends-florence-t-shirt?_pos=18&_sid=380a6ee56&_ss=r">Florence T-Shirt</a></p><br /><br />
+    <button class="modal-close" type="button" data-close-merch>Close</button>
+  </dialog>
+
   <!--THIS IS THE HOLOLIVE MODAL-->
   <dialog class="modal" id="hololive-modal" aria-labelledby="hololive-modal-title">
     <h2 id="hololive-modal-title">What is Hololive?</h2>
@@ -1253,9 +1305,16 @@
   <!--THIS IS THE NPCS MODAL-->
   <dialog class="modal" id="npcs-modal" aria-labelledby="npcs-modal-title">
     <h2 id="npcs-modal-title">NPCs</h2>
-    <p>
-      This list will contain all of the NPCs that the players encounter in Shattered Legends. Please look forward to the creations that Matt makes!
-    </p>
+    <div class="location-layout">
+      <nav class="location-nav" aria-label="NPCs">
+        <button class="location-button" type="button" data-npc="shroud-matron-dellos" aria-pressed="true">Shroud Matron Dellos</button>
+        <button class="location-button" type="button" data-npc="dawn-banneret-odessa" aria-pressed="false">Dawn Banneret Odessa</button>
+      </nav>
+      <section class="location-description" aria-live="polite" aria-atomic="true">
+        <h3 id="npc-name">Shroud Matron Dellos</h3>
+        <p id="npc-description"></p>
+      </section>
+    </div>
     <button class="modal-close" type="button" data-close-npcs>Close</button>
   </dialog>
 
@@ -1263,11 +1322,19 @@
     <h2 id="lore-modal-title">Lore (WIP)</h2>
     <div class="location-layout">
       <nav class="location-nav" aria-label="Lore topics">
-        <button class="location-button" type="button" data-lore="coming-soon" aria-pressed="true">Coming Soon</button>
-      </nav>
+      <button class="location-button" type="button" data-lore="yhuthos" aria-pressed="true">Yhuthos</button>
+      <button class="location-button" type="button" data-lore="the-sundering" aria-pressed="false">The Sundering</button>
+      <button class="location-button" type="button" data-lore="sister-divas" aria-pressed="false">Sister Divas</button>
+      <button class="location-button" type="button" data-lore="candlehearts" aria-pressed="false">Candlehearts</button>
+      <button class="location-button" type="button" data-lore="threshold" aria-pressed="false">Threshold</button>
+      <button class="location-button" type="button" data-lore="gilded-banners" aria-pressed="false">Gilded Banners</button>
+      <button class="location-button" type="button" data-lore="wardens-of-orven" aria-pressed="false">The Wardens of Orven</button>
+      <button class="location-button" type="button" data-lore="regrowth" aria-pressed="false">Regrowth</button>
+      <button class="location-button" type="button" data-lore="mother-liope" aria-pressed="false">Mother Liopé</button>
+    </nav>
       <section class="location-description" aria-live="polite" aria-atomic="true">
-        <h3 id="lore-topic-title">Coming Soon</h3>
-        <p id="lore-topic-text">Coming Soon</p>
+        <h3 id="lore-topic-title">Yhuthos</h3>
+        <p id="lore-topic-text">Once a majestic empire and a gothic metropolis, the captial Yhuthos is twice broken. Shaken when the islands were rendered from their once-whole contient and fallen when the city suffered The Sundering.</p>
       </section>
     </div>
     <button class="modal-close" type="button" data-close-lore>Close</button>
@@ -1413,11 +1480,11 @@
 
   <dialog class="modal" id="misc-stats-modal" aria-labelledby="misc-stats-title">
     <h2 id="misc-stats-title">Miscellaneous Stats</h2>
-    <p><b>Kazoo Plays:</b> 2</p>
-    <p><b>Tantrums Threatened:</b> </p>
-    <p><b>Shade at Kaz from Giryn:</b></p>
-    <p><b>WINTER IS COMING:</b> </p>
-    <p><b>SUMMER IS ENDING:</b> </p>
+    <p><b>Kazoo Plays:</b> 1</p>
+    <p><b>Tantrums Threatened:</b> 1</p>
+    <p><b>Shade at Kaz from Giryn:</b> 3</p>
+    <p><b>WINTER IS COMING:</b> 5</p>
+    <p><b>THE END OF SUMMER IS COMING:</b> 16</p>
     <button class="modal-close" type="button" data-close-misc-stats>Close</button>
   </dialog>
 
@@ -1447,6 +1514,46 @@
       </table>
     </div>
     <button class="modal-close" type="button" data-close-short-rest>Close</button>
+  </dialog>
+
+  <dialog class="modal" id="all-rolls-modal" aria-labelledby="all-rolls-title">
+    <h2 id="all-rolls-title">All Rolls</h2>
+    <h3>Episode 1:</h3>
+    <p>
+      <a href="https://youtu.be/TZro-823L38?si=8F1DDFeFSDQOAuCa&t=1291">21:31 - Shiori instinct roll: 16 with fear.</a><br />
+      <a href="https://youtu.be/TZro-823L38?si=NlIGiZn140hScTY4&t=1777">29:37 - Marisha instict roll: 21 with hope.</a><br />
+      <a href="https://youtu.be/TZro-823L38?si=J9xdZ0fSUxHuzz3w&t=2180">36:20 - Marisha instinct roll: 23 with hope.</a><br />
+      <a href="https://youtu.be/TZro-823L38?si=J9xdZ0fSUxHuzz3w&t=2180">36:20 - Nerissa finesse roll: 11 with no hope or fear.</a><br />
+      <a href="https://youtu.be/TZro-823L38?si=KSeokdsjXZmdv3lj&t=3085">51:25 - Calli presence roll: 26 with hope.</a>
+      <a href="https://youtu.be/TZro-823L38?si=4gpMoRcnYXVl2ZAK&t=3423">57:03 - Marisha spellcase roll: 7 with fear.</a><br />
+      <a href="https://youtu.be/TZro-823L38?si=amSMCy7QWaMzA0LC&t=3546">59:06 - Matt Giant Mosquitos attack roll towards Florence: 9 (misses).</a><br />
+      <a href="https://youtu.be/TZro-823L38?si=2biEfZ0Y3XvzyOYi&t=3571">59:31 - Matt Giant Mosquitos at Kaz: 12 (hits).</a><br />
+      <a href="https://youtu.be/TZro-823L38?si=mm-dB8XwrufYQWaC&t=3647">1:00:47 - Nerissa attack roll: 12 with fear (hits).</a><br />
+      <a href="https://youtu.be/TZro-823L38?si=-tSRm_2dr2t1uB7M&t=3699">1:01:39 - Matt Giant Mosquitos at Sil: 19 (hits).</a><br />
+      <a href="https://youtu.be/TZro-823L38?si=AbgtVfqnIYHUc47T&t=3753">1:02:33 - Calli attack roll: 11 with hope.</a><br />
+      <a href="https://youtu.be/TZro-823L38?si=LXqwdZKPMQE24RzA&t=3894">1:04:54 - Gigi attack roll: 12 with fear (hits).</a><br />
+      <a href="https://youtu.be/TZro-823L38?si=QvIshEEuQHMKa92t&t=3958">1:05:58 - Matt Giant Mosquitos at Giryn: 18 (hits).</a><br />
+      <a href="https://youtu.be/TZro-823L38?si=0x5YELVbcjDxbE7w&t=3993">1:06:33 - Matt Giant Mosquitos at Florence (miss).</a><br />
+      <a href="https://youtu.be/TZro-823L38?si=vmyJxfT19fyZp1J5&t=4037">1:07:17 - Shiori attack roll: 18 with fear (hits).</a><br />
+      <a href="https://youtu.be/TZro-823L38?si=xXdwSyV6IIWqb6dp&t=4119">1:08:39 - Matt Giant Mosquitos at March: 17 (hits).</a><br />
+      <a href="https://youtu.be/TZro-823L38?si=ZwyridJDM34uq9RR&t=4187">1:09:47 - Marisha presence roll: 18 with fear.</a></br />
+      <a href="https://youtu.be/TZro-823L38?si=OQmHHpsAL9bBzCa-&t=4303">1:11:34 - Nerissa spellcast roll: 11 with fear (miss).</a><br />
+      <a href="https://youtu.be/TZro-823L38?si=MINXdlDRT3VrEhPT&t=4348">1:12:28 - Matt Giant Mosquito roll with advantage: 15 (hits).</a><br />
+      <a href="https://youtu.be/TZro-823L38?si=7kcR5JFPo_Tb0gZR&t=4451">1:14:11 - Calli presence roll: 22 [CRITICAL SUCCESS].</a><br />
+      <a href="https://youtu.be/TZro-823L38?si=hpZal2iD4mwN_LeE&t=4668">1:17:48 - Shiori attack roll: 18 with hope (hit).</a><br />
+      <a href="https://youtu.be/TZro-823L38?si=iitBeGmiQ5m9FsW3&t=4743">1:19:03 - Matt Giant Mosquitos at March: Natural 20 (hits).</a><br />
+      <a href="https://youtu.be/TZro-823L38?si=6Auphr0CSTjVec2L&t=4792">1:19:52 - Marisha attack roll: 13 with hope (hit).</a><br />
+      <a href="https://youtu.be/TZro-823L38?si=hs2U7Dqrw2ZAB9kt&t=4843">1:20:43 - Gigi attack roll: 10 with fear (miss, swapped to success via Florence Witch's Charm).</a><br />
+      <a href="https://youtu.be/TZro-823L38?si=ulMe5RbSd31lFHuW&t=4931">1:22:11 - Matt Giant Mosquitos at Giryn: 8 (miss).</a><br />
+      <a href="https://youtu.be/TZro-823L38?si=pnWWP5vIJ1IAah2-&t=4958">1:22:38 - Nerissa attack roll: 16 with fear (hit).</a><br />
+      <a href="https://youtu.be/TZro-823L38?si=BI-5rt7LIh2R2Leh&t=5288">1:28:08 - Gigi instinct roll: 21 with hope.</a><br />
+      <a href="https://youtu.be/TZro-823L38?si=iHYwzqaaiE0zkG-s&t=6272">1:44:32 - Gigi group helm: 16 with hope.</a><br />
+      <a href="https://youtu.be/TZro-823L38?si=_U_FmjrgyMJvIteg&t=6443">1:47:23 - Nerissa short rest heal roll: 2 (up to +4 HP cleared).</a><br />
+      <a href="https://youtu.be/TZro-823L38?si=mk5wj9KKRoQgj5N6&t=6527">1:48:47 - Marisha witch commune: 16.</a><br />
+      <a href="https://youtu.be/TZro-823L38?si=rccsqmJEfYUfOUV2&t=6845">1:54:05 - Gigi prayer dice: 3 and a 4.</a><br />
+      <a href="https://youtu.be/TZro-823L38?si=1d7z1wKRuSPfVhga&t=6859">1:54:19 - Calli short rest heal roll: 3 (healed to full).</a>
+    </p>
+    <button class="modal-close" type="button" data-close-all-rolls>Close</button>
   </dialog>
 
   <!--THIS IS THE FLORENCE MODAL-->
@@ -1600,6 +1707,20 @@
       });
     }
 
+    const merchModal = document.querySelector("#merch-modal");
+    const merchTrigger = document.querySelector("[data-open-merch]");
+    if (merchTrigger && merchModal) {
+      merchTrigger.addEventListener("click", () => {
+        openModal(merchModal);
+      });
+    }
+    const merchCloseButton = document.querySelector("[data-close-merch]");
+    if (merchCloseButton && merchModal) {
+      merchCloseButton.addEventListener("click", () => {
+        closeModal(merchModal);
+      });
+    }
+
     const hololiveModal = document.querySelector("#hololive-modal");
     const hololiveTrigger = document.querySelector("[data-open-hololive]");
     if (hololiveTrigger && hololiveModal) {
@@ -1627,6 +1748,30 @@
         closeModal(npcsModal);
       });
     }
+    const npcDetails = {
+      "shroud-matron-dellos": {
+        name: "Shroud Matron Dellos",
+        description: "An elder female that is faun-like with burgeoning horns and longer ears that flutter out from what looks to be an ivy-covered veil that drifts past her shoulders, and a beautiful long ribbon-cut dress that is also autumn coloration as it transitions from green to a deep bround. She holds a curling staff."
+      },
+      "dawn-banneret-odessa": {
+        name: "Dawn Banneret Odessa",
+        description: "A human guardian with short reddish hair with a gray streak on the side and a heavy scar down one chin that goes across the neck. She is a high ranking member of the Banners. Adorned to be both intimidating and well armored. She has a heavy-looking broadsword that is sheathed and a long cloak of vibrant red velvet that drifts behind her."
+      }
+    };
+    const npcButtons = document.querySelectorAll("[data-npc]");
+    const npcName = document.querySelector("#npc-name");
+    const npcDescription = document.querySelector("#npc-description");
+    npcButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const npc = npcDetails[button.dataset.npc];
+        npcName.textContent = npc.name;
+        npcDescription.textContent = npc.description;
+        npcButtons.forEach((item) => {
+          item.setAttribute("aria-pressed", String(item === button));
+        });
+      });
+    });
+    npcButtons[0]?.click();
 
     const loreModal = document.querySelector("#lore-modal");
     const loreTrigger = document.querySelector("[data-open-lore]");
@@ -1642,9 +1787,41 @@
       });
     }
     const loreTopics = {
-      "coming-soon": {
-        title: "Coming Soon",
-        text: "Coming Soon"
+      yhuthos: {
+        title: "Yhuthos",
+        text: "Once a majestic empire and a gothic metropolis, the capital Yhuthos is twice broken. Shaken when the islands were rendered from their once-whole continent and fallen when the city suffered The Sundering."
+      },
+      "the-sundering": {
+        title: "The Sundering",
+        text: "A terrible, malevolent subterranean portal that sought to consume the city and the still-recovering people within."
+      },
+      "sister-divas": {
+        title: "Sister Divas",
+        text: "Two mythological demigods who guided and protected the city, that kept the Undermaw from spreading and sealed its unknowable darkness below."
+      },
+      candlehearts: {
+        title: "Candlehearts",
+        text: "Oversees the study of the Undermaw, sending expeditions deeper into the chasm, some crossing the boundary known as the Treshold, never to return."
+      },
+      threshold: {
+        title: "Threshold",
+        text: "An area within the Undermaw."
+      },
+      "gilded-banners": {
+        title: "Gilded Banners",
+        text: "Uphold the laws and protection of the communities throughout the city and its ruins, hunting wandering predators or helming dangerous treks into the deep."
+      },
+      "wardens-of-orven": {
+        title: "The Wardens of Orven",
+        text: "Oversee the wilds that surround and expand into the city, communing with eidolons and seeking wisdom from the land and the shadows of the city's ancient hubris."
+      },
+      regrowth: {
+        title: "Regrowth",
+        text: "Outer lush gardens of the envlave deep within the woods."
+      },
+      "mother-liope": {
+        title: "Mother Liopé",
+        text: "The Shroud Matron."
       }
     };
     const loreButtons = document.querySelectorAll("[data-lore]");
@@ -2114,6 +2291,20 @@
     if (shortRestCloseButton && shortRestModal) {
       shortRestCloseButton.addEventListener("click", () => {
         closeModal(shortRestModal);
+      });
+    }
+
+    const allRollsModal = document.querySelector("#all-rolls-modal");
+    const allRollsTrigger = document.querySelector("[data-open-all-rolls]");
+    if (allRollsTrigger && allRollsModal) {
+      allRollsTrigger.addEventListener("click", () => {
+        openModal(allRollsModal);
+      });
+    }
+    const allRollsCloseButton = document.querySelector("[data-close-all-rolls]");
+    if (allRollsCloseButton && allRollsModal) {
+      allRollsCloseButton.addEventListener("click", () => {
+        closeModal(allRollsModal);
       });
     }
 
